@@ -10,7 +10,7 @@ DATABASES = {
         'NAME': 'pangolinfog',
         'USER': 'skywww',
         'PASSWORD': 'skywww123',
-        'HOST': u'127.0.0.1',
+        'HOST': '127.0.0.1',
         'PORT': '',
     }
 }
