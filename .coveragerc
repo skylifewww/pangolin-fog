@@ -1,0 +1,9 @@
+[run]
+source = pangolinfog
+omit =
+    *init*
+    *urls*
+    *filldb*
+
+[report]
+show_missing = true
