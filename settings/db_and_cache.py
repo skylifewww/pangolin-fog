@@ -15,6 +15,11 @@ DATABASES = {
     }
 }
 
+db_config = dj_database_url.config(conn_max_age=500)
+DATABASES['default'].update(db_config)
+if db_config:
+    DATABASES['default'] =  db_config
+
 # CACHES = {
 #     'default': {
 #         'BACKEND': 'django_redis.cache.RedisCache',
