@@ -17,6 +17,7 @@ urlpatterns = [
     
 
     url(r'^ckeditor/', include('ckeditor_uploader.urls')),
+    url('', include('social.apps.django_app.urls', namespace='social')),
 ]
 
 if settings.DEVELOPMENT and settings.DEBUG and 'debug_toolbar' in settings.INSTALLED_APPS:
