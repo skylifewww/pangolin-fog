@@ -63,6 +63,13 @@ def product(request, category_id, product_id=1):
 def smokemachines(request):
 
     category_id=5
+    # heroku
+
+
+    # category_id=1 
+    # localdb
+
+
     args = {}
     current_category = Category.objects.get(id=category_id)
     categories = Category.objects.filter(children__in=current_category.get_descendants(include_self=True))
@@ -80,6 +87,11 @@ def smokemachines(request):
 def fluids(request):
 
     category_id=1
+    # heroku
+
+
+    # category_id=2 
+    # localdb
 
     args = {}
     current_category = Category.objects.get(id=category_id)
