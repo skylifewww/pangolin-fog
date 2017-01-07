@@ -1,14 +1,14 @@
 AUTHENTICATION_BACKENDS = (
-    'social.backends.open_id.OpenIdAuth',
-    'social.backends.vk.VKOAuth2',    
+    # 'social.backends.open_id.OpenIdAuth',
+    # 'social.backends.vk.VKOAuth2',    
     'django.contrib.auth.backends.ModelBackend',
     'guardian.backends.ObjectPermissionBackend',
-    'social.backends.email.EmailAuth',
-    'social.backends.username.UsernameAuth',
-    'social.backends.facebook.FacebookAppOAuth2',
-    'social.backends.facebook.FacebookOAuth2',
-    'social.apps.django_app.context_processors.backends',
-    'social.apps.django_app.context_processors.login_redirect',
+    # 'social.backends.email.EmailAuth',
+    # 'social.backends.username.UsernameAuth',
+    # 'social.backends.facebook.FacebookAppOAuth2',
+    # 'social.backends.facebook.FacebookOAuth2',
+    # 'social.apps.django_app.context_processors.backends',
+    # 'social.apps.django_app.context_processors.login_redirect',
 )
 
 PASSWORD_HASHERS = (

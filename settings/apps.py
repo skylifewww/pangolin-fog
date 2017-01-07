@@ -15,7 +15,7 @@ INSTALLED_APPS = (
     # 'mptt',
     'storages',
     'boto',
-    'social.apps.django_app.default',
+    # 'social.apps.django_app.default',
     'embed_video',
     'ckeditor',
     'ckeditor_uploader',
