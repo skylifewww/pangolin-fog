@@ -32,19 +32,19 @@ class Menu(models.Model):
 
     
 class MenuItem(MPTTModel):
-    menu = models.ForeignKey(Menu,null=True, blank=True, verbose_name=u"Меню")
-    name = models.CharField(max_length=200, verbose_name="Название")
-    slug = models.CharField(max_length=250, blank=True, verbose_name="Урл")
+    menu = models.ForeignKey(Menu,null=True, blank=True, verbose_name="Name menu")
+    name = models.CharField(max_length=200, verbose_name="Name")
+    slug = models.CharField(max_length=250, blank=True, verbose_name="URL")
     # full_text = RichTextField(blank=True, verbose_name="Полное описание")
-    parent = TreeForeignKey('self', null=True, blank=True, related_name='children', verbose_name=u"Родительский пункт меню")
-    published = models.BooleanField(verbose_name="Опубликован")
-    ordering = models.IntegerField(verbose_name="Порядок сортировки", default=0, blank=True, null=True)
+    parent = TreeForeignKey('self', null=True, blank=True, related_name='children', verbose_name="Parent menu item")
+    published = models.BooleanField(verbose_name="Published")
+    ordering = models.IntegerField(verbose_name="Ordering", default=0, blank=True, null=True)
 
     def __str__(self):
         return self.name
 
     class Meta:
-        verbose_name_plural = u"Пункты меню"
+        verbose_name_plural = "Menu items"
         
     class MPTTMeta:
         order_insertion_by = ['name']
@@ -61,7 +61,7 @@ class Category(models.Model):
     # published = models.BooleanField(verbose_name="Опубликован")
     # ordering = models.IntegerField(verbose_name="Порядок сортировки", default=0, blank=True, null=True)
 
-    def __unicode__(self):
+    def __str__(self):
         return self.name
         
     class Meta:
@@ -71,20 +71,20 @@ class Category(models.Model):
 
     
 class Meta(models.Model):
-    meta_description = RichTextField(blank=True, verbose_name="Мета описание")
-    meta_keywords = models.CharField(max_length=250, blank=True, verbose_name="Ключевые слова")
-    meta_title = models.CharField(max_length=250, blank=True, verbose_name="Заголовок в браузере")
-    meta_author = models.CharField(max_length=250, blank=True, verbose_name="Автор сайта")
+    meta_description = RichTextField(blank=True, verbose_name="Meta description")
+    meta_keywords = models.CharField(max_length=250, blank=True, verbose_name="Meta keywords")
+    meta_title = models.CharField(max_length=250, blank=True, verbose_name="Meta Title")
+    meta_author = models.CharField(max_length=250, blank=True, verbose_name="Meta Author")
     # favicon = models.ImageField(upload_to=make_upload_path, blank=True,  verbose_name="favicon.ico")
-    favicon_slug = models.CharField(max_length=250, blank=True, verbose_name="Урл favicon")
-    published = models.BooleanField(verbose_name="Опубликован", blank=True, default=0)
+    favicon_slug = models.CharField(max_length=250, blank=True, verbose_name="URL favicon")
+    published = models.BooleanField(verbose_name="Published", blank=True, default=0)
 
     def __str__(self):
         return self.meta_title
 
     class Meta:
-        verbose_name_plural = "Мета описания"
-        verbose_name = "Мета описание"
+        verbose_name_plural = "Meta descriptions"
+        verbose_name = "Meta description"
 
     # def pic(self):
     #     if self.favicon:
@@ -104,34 +104,34 @@ class Meta(models.Model):
         
 
         
-class Snipet(models.Model):
-    name = models.CharField(max_length=250, verbose_name="Название")
-    text = RichTextField(blank=True, verbose_name="Код снипета")
-    published = models.BooleanField(verbose_name="Опубликован")
-    ordering = models.IntegerField(verbose_name="Порядок сортировки", default=0, blank=True, null=True)
+# class Snipet(models.Model):
+#     name = models.CharField(max_length=250, verbose_name="Название")
+#     text = RichTextField(blank=True, verbose_name="Код снипета")
+#     published = models.BooleanField(verbose_name="Опубликован")
+#     ordering = models.IntegerField(verbose_name="Порядок сортировки", default=0, blank=True, null=True)
 
-    def __str__(self):
-        return self.name
+#     def __str__(self):
+#         return self.name
 
-    class Meta:
-        verbose_name_plural = "Сниппеты"
-        verbose_name = "Сниппет"
+#     class Meta:
+#         verbose_name_plural = "Сниппеты"
+#         verbose_name = "Сниппет"
 
 
-class Top(models.Model):
-    # image_back = models.ImageField(upload_to=make_upload_path, blank=True,  verbose_name="Изображение_1200x118")
-    slug = models.CharField(max_length=250, blank=True, verbose_name="Урл")
-    text_small = models.CharField(max_length=250, blank=True, verbose_name="Обещание")
-    text_big = models.CharField(max_length=250, blank=True, verbose_name="Заявка на победу")
-    published = models.BooleanField(verbose_name="Опубликован")
+# class Top(models.Model):
+#     # image_back = models.ImageField(upload_to=make_upload_path, blank=True,  verbose_name="Изображение_1200x118")
+#     slug = models.CharField(max_length=250, blank=True, verbose_name="URL")
+#     text_small = models.CharField(max_length=250, blank=True, verbose_name="Обещание")
+#     text_big = models.CharField(max_length=250, blank=True, verbose_name="Заявка на победу")
+#     published = models.BooleanField(verbose_name="Опубликован")
     
      
-    def __str__(self):
-        return self.text_small
+#     def __str__(self):
+#         return self.text_small
 
-    class Meta:
-        verbose_name_plural = "Шапки"
-        verbose_name = "Шапка"   
+#     class Meta:
+#         verbose_name_plural = "Шапки"
+#         verbose_name = "Шапка"   
 
     # def pic(self):
     #     if self.image_back:
@@ -141,13 +141,13 @@ class Top(models.Model):
     # pic.short_description = u'Большая картинка'
     # pic.allow_tags = True  
 
-    def pic_slug(self):
-        if self.slug:
-            return u'<img src="%s" width="70"/>' % self.slug
-        else:
-            return '(none)'
-    pic_slug.short_description = u'Картинка шапки'
-    pic_slug.allow_tags = True   
+    # def pic_slug(self):
+    #     if self.slug:
+    #         return u'<img src="%s" width="70"/>' % self.slug
+    #     else:
+    #         return '(none)'
+    # pic_slug.short_description = u'Картинка шапки'
+    # pic_slug.allow_tags = True   
 
 
 class Slide(models.Model):
@@ -162,7 +162,7 @@ class Slide(models.Model):
     ordering = models.IntegerField(verbose_name="Ordering", default=0, blank=True, null=True)
     
         
-    def __unicode__(self):
+    def __str__(self):
         return self.name
 
     # def pic(self):

@@ -23,12 +23,12 @@ class MetaAdmin(admin.ModelAdmin):
     list_editable = ['meta_description', 'meta_keywords', 'meta_title', 'meta_author', 'published']
 
 
-class TopAdmin(admin.ModelAdmin):
-    list_display = ['pic_slug', 'text_small', 'text_big', 'published']
-    list_editable = ['text_small', 'text_big', 'published']
-    formfield_overrides = {
-        models.ImageField: {'widget': AdminImageWidget},
-    }
+# class TopAdmin(admin.ModelAdmin):
+#     list_display = ['pic_slug', 'text_small', 'text_big', 'published']
+#     list_editable = ['text_small', 'text_big', 'published']
+#     formfield_overrides = {
+#         models.ImageField: {'widget': AdminImageWidget},
+#     }
 
 
 class  CategoryAdmin(admin.ModelAdmin):
@@ -49,7 +49,7 @@ admin.site.register(Meta, MetaAdmin)
 admin.site.register(Slide, SlideAdmin)  
 admin.site.register(Category, CategoryAdmin)
 
-admin.site.register(Snipet)
-admin.site.register(Top, TopAdmin)
+# admin.site.register(Snipet)
+# admin.site.register(Top, TopAdmin)
 
 
