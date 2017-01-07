@@ -35,3 +35,5 @@ python-social-auth
 django-ckeditor
 django-mptt
 pathlib
+social-auth-app-django
+social-auth-core

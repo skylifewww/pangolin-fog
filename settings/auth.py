@@ -7,6 +7,8 @@ AUTHENTICATION_BACKENDS = (
     'social.backends.username.UsernameAuth',
     'social.backends.facebook.FacebookAppOAuth2',
     'social.backends.facebook.FacebookOAuth2',
+    'social.apps.django_app.context_processors.backends',
+    'social.apps.django_app.context_processors.login_redirect',
 )
 
 PASSWORD_HASHERS = (
