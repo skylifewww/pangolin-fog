@@ -28,11 +28,9 @@ def products(request, category_id=1):
 
     args = {}
     current_category = Category.objects.get(id=category_id)
-    categories_main_menu = Category.objects.filter(published_in_menu=1).order_by('ordering')
     categories = Category.objects.filter(children__in=current_category.get_descendants(include_self=True))
     categories_second_menu = Category.objects.filter(published_in_second=1).order_by('ordering')
     args['categories'] = categories
-    args['categories_main_menu'] = categories_main_menu
     args['categories_second_menu'] = categories_second_menu
     
     products = Product.objects.filter(product_category__in=current_category.get_descendants(include_self=True))
@@ -42,16 +40,13 @@ def products(request, category_id=1):
     return render_to_response("products.html", args)
 
 
-
 def product(request, category_id, product_id=1):
 
     args = {}
     current_category = Category.objects.get(id=category_id)
     categories = Category.objects.filter(children__in=current_category.get_descendants(include_self=True))
     categories_second_menu = Category.objects.filter(published_in_second=1).order_by('ordering')
-    categories_main_menu = Category.objects.filter(published_in_menu=1).order_by('ordering')
     args['categories'] = categories
-    args['categories_main_menu'] = categories_main_menu
     args['categories_second_menu'] = categories_second_menu
     current_product = Product.objects.get(id=product_id)
     current_category = Category.objects.get(id=category_id)
@@ -65,12 +60,60 @@ def product(request, category_id, product_id=1):
     return render_to_response("product.html", args)
 
 
+def smokemachines(request):
+
+    category_id=1
+    args = {}
+    current_category = Category.objects.get(id=category_id)
+    categories = Category.objects.filter(children__in=current_category.get_descendants(include_self=True))
+    categories_second_menu = Category.objects.filter(published_in_second=1).order_by('ordering')
+    args['categories'] = categories
+    args['categories_second_menu'] = categories_second_menu
+    
+    products = Product.objects.filter(product_category__in=current_category.get_descendants(include_self=True))
+    args['current_category'] = current_category
+    args['products'] = products
+
+    return render_to_response("products.html", args)
+
+
+def fluids(request):
+
+    category_id=2
+
+    args = {}
+    current_category = Category.objects.get(id=category_id)
+    categories = Category.objects.filter(children__in=current_category.get_descendants(include_self=True))
+    categories_second_menu = Category.objects.filter(published_in_second=1).order_by('ordering')
+    args['categories'] = categories
+    args['categories_second_menu'] = categories_second_menu
+    
+    products = Product.objects.filter(product_category__in=current_category.get_descendants(include_self=True))
+    args['current_category'] = current_category
+    args['products'] = products
+
+    return render_to_response("fluids.html", args)    
+
+
+def fluids_line(request, category_id=1):
+
+    args = {}
+    current_category = Category.objects.get(id=category_id)
+    categories = Category.objects.filter(children__in=current_category.get_descendants(include_self=True))
+    categories_second_menu = Category.objects.filter(published_in_second=1).order_by('ordering')
+    args['categories'] = categories
+    args['categories_second_menu'] = categories_second_menu
+    
+    products = Product.objects.filter(product_category__in=current_category.get_descendants(include_self=True))
+    args['current_category'] = current_category
+    args['products'] = products
+
+    return render_to_response("fluids.html", args)      
+
+
 def supports(request):
 
     args = {}
-    categories_main_menu = Category.objects.filter(published_in_menu=1).order_by('ordering')
-    
-    args['categories_main_menu'] = categories_main_menu
     
     supports = Support.objects.filter(published=1).order_by('ordering')
     # current_category = Category.objects.get(id=category_id)

@@ -1,0 +1,47 @@
+{% extends "index.html" %}
+{% load staticfiles %}
+{% load embed_video_tags %}
+{# {% load i18n mptt_tags %} #}
+{% load thumbnail %}
+{% load content_tags %}
+
+{% block fluids %}
+
+   
+ <!-- Devices Section-->
+    <section id="testimonials">
+ <div class="small-header bg-white"></div>
+
+  <!-- Why Section-->
+    <section>
+      <div class="container text-center">
+        
+        <div class="row">
+        {% for product in products %}
+          <div data-wow-delay=".2s" class="col-lg-4 col-sm-6 wow fadeIn">
+
+          <div class="device_main">
+
+                <h3>{{ product.product_title }}</h3>
+
+                <h4>{{ product.slogan }}</h4>
+
+          
+                <a href="/products/product/{{product.product_category.id}}/{{product.id}}/"><img src="{{ product.slug }}" alt="" class="img-responsive center-block"></a>
+
+
+                 </div>
+                 <div class="device_bottom">
+
+                <h3><a href="/products/product/{{current_category.id}}/{{product.id}}/">Learning more</a><span></span>&nbsp;&nbsp;&nbsp;&nbsp;<a href="#0">Buy</a></h3>
+
+                </div>
+
+          </div>
+           {% endfor %}
+        
+        </div>
+      </div>
+    </section>
+    
+   {% endblock %}

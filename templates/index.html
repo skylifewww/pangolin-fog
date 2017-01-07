@@ -44,11 +44,10 @@
     </a> <!-- .nav-trigger -->
 
     <ul id="cd-navigation">
-    {% for category in categories_main_menu %}
 
-      <li><a href="/products/{{category.id}}/">{{ category.name }}</a></li>
+      <li><a href="/products/smokemachines/">Smoke Machines</a></li>
 
-      {% endfor %}
+      <li><a href="/products/fluids/">Fluids</a></li>
      
       <li><a href="#">Support</a></li>
       <!-- <li><a href="/support/supports/">Support</a></li> -->
@@ -98,7 +97,7 @@
     
  {% for category in categories_second_menu %}
 
-      <li><a href="/products/{{category.id}}/">{{ category.name }}</a></li>
+      <li><a href="/products/fluids/{{category.id}}/">{{ category.name }}</a></li>
 
       {% endfor %}
 
@@ -190,6 +189,7 @@
 
 {% block contact %}{% endblock %}   
 {% block landing %}{% endblock %} 
+{% block fluids %}{% endblock %} 
 
 
 
