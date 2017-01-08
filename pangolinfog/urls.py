@@ -14,11 +14,13 @@ urlpatterns = [
     url(r'support/', include('product.urls')),
     url(r'news/$',news),
     url(r'contact/$',contact),
+    url(r'download/', download_file),
     
 
     url(r'^ckeditor/', include('ckeditor_uploader.urls')),
     # url('', include('social.apps.django_app.urls', namespace='social')),
 ]
+
 
 if settings.DEVELOPMENT and settings.DEBUG and 'debug_toolbar' in settings.INSTALLED_APPS:
     import debug_toolbar
