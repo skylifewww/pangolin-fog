@@ -1,6 +1,7 @@
 import os
 from django.http import FileResponse
 from wsgiref.util import FileWrapper
+from settings.static import MEDIA_URL
 # from django.core.servers.basehttp import FileWrapper
 from django.views.generic import TemplateView
 from django.shortcuts import render_to_response, render, redirect
@@ -18,7 +19,7 @@ from content.models import Slide
 
 
 def download_file(request):
-    _file = '/public/media/Last_Summer_in_Yalta.mp3.zip'
+    _file = 'Last_Summer_in_Yalta.mp3.zip'
     filename = os.path.basename(_file)
     response = FileResponse(FileWrapper(file(filename, 'rb')), content_type='application/x-zip-compressed')
     response['Content-Disposition'] = "attachment; filename=%s" % _file
