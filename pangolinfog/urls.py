@@ -15,6 +15,7 @@ urlpatterns = [
     url(r'news/$',news),
     url(r'contact/$',contact),
     url(r'download/', download_file),
+    url(r'download_mp3/', download_mp3),
     
 
     url(r'^ckeditor/', include('ckeditor_uploader.urls')),
