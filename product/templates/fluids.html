@@ -7,8 +7,6 @@
 
 {% block fluids %}
 
-<link href="{% static 'pangolinfog/css/universal.css' %}" rel="stylesheet">
-
    
  <!-- Devices Section-->
  <div class="small-header bg-white"></div>
@@ -18,12 +16,15 @@
       <div class="container">
 
        <div class="clearfix"></div>
-        <div class="row grid-pad">
 
-        
-        <!-- <div class="row"> -->
-        {% for product in products %}
-          <div class="col-sm-6 col-md-4">
+       
+        <div class="row">
+
+{% for product in products %}
+     
+          <div class="col-sm-6 col-md-3">
+
+  
 
           <div class="device_main">
 
@@ -48,10 +49,15 @@
 
                 </div>
 
+               
+
           </div>
-           {% endfor %}
+           <!-- <div class="clearfix"></div> -->
+            {% endfor %}
         
         </div>
+
+        
       </div>
     </section>
     

@@ -1337,7 +1337,7 @@ input[type=checkbox], input[type=radio] {
     font-size: 32px;
     padding: 5px 0; } }
 /* News - Blog etc grid */
-/*#news div[class*="col-"] {
+#news div[class*="col-"] {
   margin-bottom: 60px; }
 #news h5 {
   padding-top: 10px;
@@ -1359,10 +1359,10 @@ input[type=checkbox], input[type=radio] {
 .row:not(:first-child) {
   padding-top: 40px; 
   padding-bottom: 40px;
-}*/
+}
 
 /* News - Blog etc grid */
-#news {
+#/*news {
   div[class*="col-"] {
     margin-bottom: 60px;
   }
@@ -1388,7 +1388,7 @@ input[type=checkbox], input[type=radio] {
 
 .row:not(:first-child) {
   padding-top: 40px;
-}
+}*/
 
 /* Team */
 #team {
