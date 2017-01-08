@@ -62,11 +62,11 @@ def product(request, category_id, product_id=1):
 
 def smokemachines(request):
 
-    # category_id=5
+    category_id=5
     # heroku
 
 
-    category_id=1 
+    # category_id=1 
     # localdb
 
 
@@ -86,11 +86,11 @@ def smokemachines(request):
 
 def fluids(request):
 
-    # category_id=1
+    category_id=1
     # heroku
 
 
-    category_id=2 
+    # category_id=2 
     # localdb
 
     args = {}
