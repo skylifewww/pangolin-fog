@@ -19,7 +19,7 @@ from content.models import Slide
 
 
 def download_file(request):
-    _file = 'Last_Summer_in_Yalta.mp3.zip'
+    _file = 'manualtourhazer2.pdf'
     filename = os.path.basename(_file)
     response = FileResponse(FileWrapper(file(filename, 'rb')), content_type='application/x-zip-compressed')
     response['Content-Disposition'] = "attachment; filename=%s" % _file
