@@ -19,11 +19,19 @@ from content.models import Slide
 
 
 def download_file(request):
-    _file = 'manualtourhazer2.pdf'
+    _file = 'manualtourhazer2.pdf.zip'
     filename = os.path.basename(_file)
     response = FileResponse(FileWrapper(file(filename, 'rb')), content_type='application/x-zip-compressed')
     response['Content-Disposition'] = "attachment; filename=%s" % _file
     return response
+
+
+def download_mp3(request):
+    _file = 'Last_Summer_in_Yalta.mp3.zip'
+    filename = os.path.basename(_file)
+    response = FileResponse(FileWrapper(file(filename, 'rb')), content_type='application/x-zip-compressed')
+    response['Content-Disposition'] = "attachment; filename=%s" % _file
+    return response    
 
 
 def main(request):
