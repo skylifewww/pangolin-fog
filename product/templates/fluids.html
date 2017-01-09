@@ -15,10 +15,12 @@
     <section id="news" class="section-small">
       
 
-       <div class="clearfix"></div>
+      
 
        <div class="container">
-       
+
+        <div class="clearfix"></div>
+
         <div class="row">
 
 {% for product in products %}
@@ -37,13 +39,14 @@
 
                 <h3><a href="/products/product/{{current_category.id}}/{{product.id}}/">Learning more</a><span></span>&nbsp;&nbsp;&nbsp;&nbsp;<a href="/download_mp3/">Buy</a></h3>
 
-                <!-- </div> -->
+                </div>
 
           
                 <a href="/products/product/{{product.product_category.id}}/{{product.id}}/"><img src="{{ product.slug }}" alt="" class="img-responsive center-block"></a>
 
-
                  </div>
+
+
                  <div class="device_bottom">
 
                 <h3><a href="/download/">Manual</a><span></span>&nbsp;&nbsp;&nbsp;&nbsp;<a href="/download_mp3/">Buy</a></h3>
