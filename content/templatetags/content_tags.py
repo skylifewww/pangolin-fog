@@ -7,7 +7,7 @@ from django import template
 # from django.utils.safestring import mark_safe
 from django.shortcuts import render_to_response, redirect, get_object_or_404
 from content.models import *
-from product.models import Category, Support
+from product.models import Category, Support, Product
 
 
 register = template.Library()
@@ -67,8 +67,9 @@ def top_text_big():
 @register.inclusion_tag('footer/category_footer.html')
 def category_footer():
     
-    categories = Category.objects.filter(published=1).order_by('ordering')
-    return {'categories': categories} 
+    products = Product.objects.filter(published=1).order_by('ordering')
+    categories = Category.objects.filter(published_in_second=1).order_by('ordering')
+    return {'categories': categories, 'products': products} 
 
 
 @register.inclusion_tag('footer/support_footer.html')

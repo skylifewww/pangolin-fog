@@ -22,14 +22,15 @@
         <div class="clearfix"></div>
 
         <div class="row">
+        
 
 {% for product in products %}
      
-          <div class="col-md-4">
+          <div class="col-sm-6 col-md-4">
 
   
 
-          <div class="device_main">
+            <div class="device_main">
 
                 <h3>{{ product.product_title }}</h3>
 
@@ -44,7 +45,7 @@
           
                 <a href="/products/product/{{product.product_category.id}}/{{product.id}}/"><img src="{{ product.slug }}" alt="" class="img-responsive center-block"></a>
 
-                 </div>
+            </div>
 
 
                  <div class="device_bottom">

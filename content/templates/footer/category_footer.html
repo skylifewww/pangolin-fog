@@ -1,5 +1,10 @@
 <ul>
+{% for product in products %}
+           <li><h8 class="no-pad"><a href="/products/product/{{product.product_category.id}}/{{product.id}}/">{{ product.product_title }}</a></h8></li>
+            {% endfor %}
+
+
 {% for category in categories %}
-           <li><h8 class="no-pad"><a href="/products/{{category.id}}/">{{ category.name }}</a></h8></li>
+           <li><h8 class="no-pad"><a href="/products/fluids/{{category.id}}/">{{ category.name }}</a></h8></li>
             {% endfor %}
 </ul>
