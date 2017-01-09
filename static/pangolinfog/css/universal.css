@@ -271,11 +271,11 @@ h4, h5, h6 {
   opacity: 0.6;
   
   bottom: 150px; 
-  margin-left:350px;
+  margin-left: 550px;
   z-index: 100;
 }
 
-@media (max-height: 770px) {
+@media (max-width: 770px) {
   #Carousel-intro .smoke {
   position: absolute;
   width: 250px;
