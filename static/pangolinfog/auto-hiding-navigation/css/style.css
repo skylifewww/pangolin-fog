@@ -25,6 +25,8 @@ a {
   text-decoration: none;
 }
 
+
+
 /* -------------------------------- 
 
 1. Auto-Hiding Navigation - Simple
@@ -541,6 +543,10 @@ a.btn-nav .btn {
   color: #f2f2f2;
   font-size: 1.8rem;
   border-top: 1px solid #3c3f54;
+}
+
+.colortext {
+     color: #d90403; /* Красный цвет выделения */
 }
 .cd-primary-nav > ul a:hover, .cd-primary-nav > ul a.active {
   color: #8F3985;
