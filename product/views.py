@@ -24,6 +24,19 @@ def software(request):
     return render_to_response("software.html")
 
 
+def products_all(request, category_id=1):
+
+    args = {}
+ 
+    args["categories_all"] = Category.objects.filter(published=1).order_by('ordering') 
+    products = Product.objects.all().order_by('ordering') 
+    
+    args['products'] = products
+
+    return render_to_response("products_all.html", args)
+
+
+
 def products(request, category_id=1):
 
     args = {}

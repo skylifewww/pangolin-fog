@@ -48,6 +48,8 @@
 
     <ul id="cd-navigation">
 
+      <li><a href="/products/products_all/"><span class="colortext">P</span>roducts</a></li> 
+      
       <li><a href="/products/smokemachines/"><span class="colortext">S</span>moke Machines</a></li>
 
       <li><a href="/products/fluids/"><span class="colortext">F</span>luids</a></li>
@@ -113,7 +115,7 @@
 
 
 
-  {% elif products %}
+  {% elif products and not categories_all %}
 
    <nav class="cd-secondary-nav">
     <ul>
@@ -192,7 +194,8 @@
 
 {% block contact %}{% endblock %}   
 {% block landing %}{% endblock %} 
-{% block fluids %}{% endblock %} 
+{% block fluids %}{% endblock %}
+{% block products_all %}{% endblock %} 
 
 
 

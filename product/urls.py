@@ -9,6 +9,7 @@ urlpatterns = [
 
     # url(r'^article/get/(?P<category_id>\d+)/(?P<article_id>\d+)/$', article.views.article),
 
+    url(r'^products_all/$', product.views.products_all),
     url(r'^smokemachines/$', product.views.smokemachines),
     url(r'^fluids/$', product.views.fluids),
     url(r'^(?P<category_id>\d+)/$', product.views.products),

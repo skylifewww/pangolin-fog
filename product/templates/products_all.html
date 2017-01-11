@@ -1,0 +1,90 @@
+{% extends "index.html" %}
+{% load staticfiles %}
+{% load embed_video_tags %}
+{# {% load i18n mptt_tags %} #}
+{% load thumbnail %}
+{% load content_tags %}
+
+{% block products_all %}
+
+   
+ <!-- Devices Section-->
+ <div class="small-header bg-white"></div>
+
+  <!-- Why Section-->
+    <section id="news" class="section-small">
+    
+      
+
+       <div class="container">
+
+        <div class="clearfix"></div>
+
+    {% for category in categories_all %}    
+
+    {% if category.published_in_second == 0 %}
+
+     <div class="row">
+
+    <div class="pull-left"> 
+
+    <div class="device"><h1>{{ category.name }}</h1></div>
+        
+     </div>
+     </div>
+
+     {% endif %}
+    
+{% for product in products %}
+
+{% if product.product_category == category %}
+     
+          <div class="col-sm-4 col-md-3">
+
+  
+            <div class="device_main">
+
+                <h3>{{ product.product_title }}</h3>
+
+                <h4>{{ product.slogan }}</h4>
+
+                <div class="device">
+
+                <h3><a href="/products/product/{{current_category.id}}/{{product.id}}/">Learning more</a><span></span>&nbsp;&nbsp;&nbsp;&nbsp;<a href="/download_mp3/">Buy</a></h3>
+
+                </div>
+
+          
+                <a href="/products/product/{{product.product_category.id}}/{{product.id}}/"><img src="{{ product.slug }}" alt="" class="img-responsive center-block"></a>
+
+            </div>
+
+
+                 <div class="device_bottom">
+
+                <h3><a href="/download/">Manual</a><span></span>&nbsp;&nbsp;&nbsp;&nbsp;<a href="/download_mp3/">Buy</a></h3>
+
+                </div>
+
+               
+
+          </div>
+         
+          {% endif %}
+
+
+          
+            {% endfor %}
+
+             {# </div> #}
+
+            <div class="clearfix"></div>
+            {% endfor %}
+        
+        </div>
+
+        
+      </div>
+    </section>
+    
+   {% endblock %}
