@@ -159,6 +159,7 @@ class Slide(models.Model):
     text2 = RichTextUploadingField(blank=True, verbose_name="Text2")
     published = models.BooleanField(verbose_name="Published", blank=True)
     published_main = models.BooleanField(verbose_name="Published on main", default="", blank=True)
+    published_all_prod = models.BooleanField(verbose_name="Published on Products page", default="", blank=True)
     ordering = models.IntegerField(verbose_name="Ordering", default=0, blank=True, null=True)
     
         
@@ -184,6 +185,8 @@ class Slide(models.Model):
     class Meta:
         verbose_name_plural = "Slides"
         verbose_name = "Slide"  
+
+
 
 
   

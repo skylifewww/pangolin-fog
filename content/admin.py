@@ -36,8 +36,8 @@ class  CategoryAdmin(admin.ModelAdmin):
 
 
 class SlideAdmin(admin.ModelAdmin):
-    list_display = ['name', 'pic_slug', 'category', 'published', 'published_main', 'ordering']
-    list_editable = ['published','ordering', 'published_main']
+    list_display = ['name', 'pic_slug', 'category', 'published', 'published_main', "published_all_prod", 'ordering']
+    list_editable = ['published','ordering', 'published_main', "published_all_prod"]
     formfield_overrides = {
         models.ImageField: {'widget': AdminImageWidget},
     }
