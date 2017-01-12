@@ -23,10 +23,10 @@ def download_file(request):
     filename = os.path.basename(_file)
 
     # python 3
-    response = FileResponse(FileWrapper(open(filename, 'rb')), content_type='application/x-zip-compressed')
+    # response = FileResponse(FileWrapper(open(filename, 'rb')), content_type='application/x-zip-compressed')
 
     # python 2
-    # response = FileResponse(FileWrapper(file(filename, 'rb')), content_type='application/x-zip-compressed')
+    response = FileResponse(FileWrapper(file(filename, 'rb')), content_type='application/x-zip-compressed')
      
     
     response['Content-Disposition'] = "attachment; filename=%s" % _file
@@ -38,10 +38,10 @@ def download_mp3(request):
     filename = os.path.basename(_file)
 
     # python 3
-    response = FileResponse(FileWrapper(open(filename, 'rb')), content_type='application/x-zip-compressed')
+    # response = FileResponse(FileWrapper(open(filename, 'rb')), content_type='application/x-zip-compressed')
 
     # python 2
-    # response = FileResponse(FileWrapper(file(filename, 'rb')), content_type='application/x-zip-compressed')
+    response = FileResponse(FileWrapper(file(filename, 'rb')), content_type='application/x-zip-compressed')
      
     
     response['Content-Disposition'] = "attachment; filename=%s" % _file
