@@ -53,7 +53,7 @@ def products(request, category_id=1):
     return render_to_response("products.html", args)
 
 
-def product(request, category_id, product_id=1):
+def product(request, category_id, product_id):
 
     args = {}
     current_category = Category.objects.get(id=category_id)
@@ -64,7 +64,7 @@ def product(request, category_id, product_id=1):
     current_product = Product.objects.get(id=product_id)
     current_category = Category.objects.get(id=category_id)
     products = Product.objects.filter(product_category__in=current_category.get_descendants(include_self=True))
-    menu_items = MenuItemProduct.objects.filter(category__in=current_category.get_descendants(include_self=True))
+    menu_items = MenuItemProduct.objects.filter(category__in=categories.get_descendants(include_self=True))
     args['menu_items'] = menu_items
     args['current_category'] = current_category
     args['products'] = products

@@ -94,28 +94,9 @@
     </ul>
   </nav> <!-- .cd-primary-nav -->
 
-  {% if categories %}
-
-<nav class="cd-secondary-nav">
-    <ul>
-
-    
- {% for category in categories_second_menu %}
-
-      <li><a href="/products/fluids/{{category.id}}/">{{ category.name }}</a></li>
-
-      {% endfor %}
-
-    </ul>
-  </nav> <!-- .cd-secondary-nav -->
- 
 
 
-
-
-
-
-  {% elif products and not categories_all %}
+  {% if products and not categories_all %}
 
    <nav class="cd-secondary-nav">
     <ul>
@@ -166,9 +147,26 @@
 
   </nav> <!-- .cd-secondary-nav -->
 
-     {% endif %}
+     
+
+
+
+       {% elif categories %}
+
+<nav class="cd-secondary-nav">
+    <ul>
+
+    
+ {% for category in categories_second_menu %}
+
+      <li><a href="/products/fluids/{{category.id}}/">{{ category.name }}</a></li>
+
+      {% endfor %}
+
+    </ul>
+  </nav> <!-- .cd-secondary-nav -->
    
-  
+  {% endif %}
 
 
   </header> <!-- .cd-auto-hide-header -->

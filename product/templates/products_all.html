@@ -16,13 +16,20 @@
 
        <div class="container">
        <div class="row">
+
         
 
     {% for category in categories_all %}    
 
+
+
     {% if category.published_in_second == 0 %}
 
-    <hr></hr>
+   {% if  category.ordering != 1 %}
+
+   <hr></hr>
+
+     {% endif %}
 
      
 <div class="clearfix"></div>
@@ -86,13 +93,11 @@
 
             <div class="clearfix"></div>
 
-              {# {% if category.published_in_second == 0 %} #}
+              
 
-   {# <hr></hr> #}
-
-     {# {% endif %} #}
             
             {% endfor %}
+
         
         </div>
 
