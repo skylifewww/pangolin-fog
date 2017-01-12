@@ -12,15 +12,15 @@ MenuItemProduct
 
 
 class ProductAdmin(AdminVideoMixin, admin.ModelAdmin):
-    fields = ["product_title", "product_creator", "product_video", 'video_published', "product_date", "slogan", 'short_text',
+    fields = ["product_title", "product_creator", "product_video", 'video_published', "product_date", "slogan", "product_price", 'short_text',
               'full_text', 'slug',
               "product_tag", "product_category", 'published', 'ordering', 'published_main']
 
    
     list_filter = ["product_title", "product_date", "product_tag", "product_category", "product_creator", 'published']
     search_fields = ["product_title", "product_date", "product_tag", "product_category", "product_creator"]
-    list_display = ["product_title", "product_category", "product_creator", 'published', 'ordering', 'published_main', 'pic_slug']
-    list_editable = ['published', 'ordering', 'published_main']
+    list_display = ["product_title", "product_price", "product_category", "product_creator", 'published', 'ordering', 'published_main', 'pic_slug']
+    list_editable = ['published', "product_price", 'ordering', 'published_main']
     formfield_overrides = {
         ThumbnailerImageField: {'widget': AdminImageWidget},
     }

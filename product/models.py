@@ -140,6 +140,7 @@ class Product(models.Model):
     product_category = TreeForeignKey(Category, related_name="products", verbose_name="Categories", default="", blank=True)
     product_creator = TreeForeignKey(Creator, related_name="creator", max_length=200, verbose_name="Creator", blank=True, default="")
     product_video = EmbedVideoField(verbose_name='Video', blank=True, help_text='URL video', null=True)
+    product_price = models.FloatField(verbose_name="Price", default=0, blank=True, null=True)
     video_published = models.BooleanField( blank=True, default="")
     slug = models.CharField(max_length=250, blank=True, verbose_name="Url")
     slogan = models.CharField(max_length=250, verbose_name="Product Slogan")

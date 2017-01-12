@@ -7,9 +7,34 @@
 
 {% block products_all %}
 
-   
- <!-- Devices Section-->
- <div class="small-header bg-white"></div>
+
+  <section style="background-image:url('/static/pangolinfog/img/laser_17.jpg');" class="intro introhalf">
+      <!-- Intro Header-->
+      {# <div class="intro-body"> #}
+        <div class="container">
+        <div class="clearfix"></div>
+          <div class="row">
+          
+            <div class="col-md-10 col-md-offset-1">
+            <h4></h4>
+
+             <div class="device_main">
+
+                <h4>2017 &copy Pangolin Laser Systems Inc.</h4>
+              <h3>Pangolin has already more than 50 years is the best engine for development of laser technologies. We know very well how to make our products so that they meet the highest requirements of modern laser show.</h3>
+
+               <h3>And now we are pleased to introduce our company as a reliable partner Smoke Factory and their product lines that highlight our perfection. This smoke machines and fluid for these machines.</h3>
+
+                 </div>
+
+              
+
+
+            </div>
+          </div>
+        {# </div> #}
+      </div>
+    </section>
 
   <!-- Why Section-->
     <section id="news" class="section-small">
@@ -17,20 +42,26 @@
       
 
        <div class="container">
-
-        <div class="clearfix"></div>
+       <div class="row">
+        
 
     {% for category in categories_all %}    
 
     {% if category.published_in_second == 0 %}
 
-     <div class="row">
+    <hr></hr>
 
-    <div class="pull-left"> 
+     
+<div class="clearfix"></div>
 
-    <div class="device"><h1>{{ category.name }}</h1></div>
+<div class="row">
+
+
+    {# <div class="pull-left">  #}
+
+    <div class="device_all"><h1>{{ category.name }}</h1></div>
         
-     </div>
+     {# </div> #}
      </div>
 
      {% endif %}
@@ -53,18 +84,18 @@
           
                 <a href="/products/product/{{product.product_category.id}}/{{product.id}}/"><img src="{{ product.slug }}" alt="" class="img-responsive center-block"></a>
 
-                  <div class="device_main">
+                  <div class="device_main_all">
 
                 <h3>{{ product.product_title }}</h3>
 
                 <h4>{{ product.slogan }}</h4>
 
-            </div>
+                 </div>
 
 
-                 <div class="device_bottom">
+                 <div class="device_bottom_all">
 
-                <h3><a href="/products/product/{{product.product_category.id}}/{{product.id}}/">Learning more</a></h3>
+                <h3>${{ product.product_price }}</span></span>&nbsp;&nbsp;&nbsp;&nbsp;<a href="/products/product/{{product.product_category.id}}/{{product.id}}/">Learning more</a></h3>
 
                 </div>
 
@@ -78,9 +109,16 @@
           
             {% endfor %}
 
-             {# </div> #}
+           
 
             <div class="clearfix"></div>
+
+              {# {% if category.published_in_second == 0 %} #}
+
+   {# <hr></hr> #}
+
+     {# {% endif %} #}
+            
             {% endfor %}
         
         </div>
