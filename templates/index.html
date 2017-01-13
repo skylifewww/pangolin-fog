@@ -58,7 +58,8 @@
       <!-- <li><a href="/support/supports/">Support</a></li> -->
 
       <!-- <li><a href="/news/">About Us</a></li> -->
-      <li><a href="#"><span class="colortext">A</span>bout Us</a></li>
+      <li><a href="/about/"><span class="colortext">A</span>bout Us</a></li>
+      <li><a href="/news/"><span class="colortext">N</span>ews</a></li>
       
       <li><a href="/contact/"><span class="colortext">C</span>ontact</a></li>
 
@@ -217,11 +218,11 @@
            
            <div class="col-sm-3 col-sm-offset-1 footer-menu">
             <h5>Pangolin</h5>
-            <h6 class="no-pad"><a href="#">About us</a></h6>
-            <h6 class="no-pad"><a href="#">Our Clients</a></h6>
-            <h6 class="no-pad"><a href="#">Our Team</a></h6>
-            <h6 class="no-pad"><a href="#">Contact Us</a></h6>
-            <h6 class="no-pad"><a href="#">Register</a></h6>
+            <h6 class="no-pad"><a href="/news/">About us</a></h6>
+            <h6 class="no-pad"><a href="/news/">Our Clients</a></h6>
+            <h6 class="no-pad"><a href="/about/">Our Team</a></h6>
+            <h6 class="no-pad"><a href="/contact/">Contact Us</a></h6>
+            <h6 class="no-pad"><a href="/contact/">Register</a></h6>
             <h6 class="no-pad"><a href="#">Shop</a></h6>
           </div>
          
@@ -280,6 +281,7 @@
     <script src="{% static 'pangolinfog/js/jquery.swipebox.min.js' %}"></script>
     <script src="{% static 'pangolinfog/js/smoothscroll.min.js' %}"></script>
     <script src="{% static 'pangolinfog/js/wow.min.js' %}"></script>
+    <script src="{% static 'pangolinfog/js/jquery.smartmenus.js' %}"></script>
 
 <script src="{% static 'pangolinfog/auto-hiding-navigation/js/main.js' %}"></script> <!-- Resource jQuery -->
 
@@ -290,7 +292,7 @@
         <script src="{% static 'pangolinfog/js/map.js' %}"></script>
     <!-- Custom Theme JavaScript-->
 
-     <script src="{% static 'pangolinfog/js/smoke.js' %}"</script>
+     {# // <script src="{% static 'pangolinfog/js/smoke.js' %}"</script> #}
      <script src="{% static 'pangolinfog/js/universal.js' %}"></script>
     
 <!--[if lt IE 9]>

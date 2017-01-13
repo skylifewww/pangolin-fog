@@ -4,7 +4,7 @@ from wsgiref.util import FileWrapper
 from settings.static import MEDIA_URL
 # from django.core.servers.basehttp import FileWrapper
 from django.views.generic import TemplateView
-from django.shortcuts import render_to_response, render, redirect
+from django.shortcuts import render_to_response, render, redirect, get_object_or_404
 from django.core.mail import send_mail
 from django.http import HttpResponse
 from django.template import RequestContext
@@ -57,7 +57,6 @@ def main(request):
 	args['categories_main_menu'] = categories_main_menu
 	args['slides'] = slides
 
-
 	return render_to_response("main.html", args)
 
 
@@ -65,10 +64,33 @@ def main(request):
 def news(request):
 
 	args = {}
-	categories_main_menu = Category.objects.filter(published_in_menu=1).order_by('ordering')
-	args['categories_main_menu'] = categories_main_menu
+	
+	slides = Slide.objects.filter(published_portfolio=1).order_by('ordering')
+	news = Slide.objects.filter(published_news=1).order_by('ordering')
+	background_image = get_object_or_404(Slide, header_about=1)
+
+
+	args['news'] = news
+	args['slides'] = slides
+	args['background_image'] = background_image
 
 	return render_to_response("news.html", args)
+
+
+def about(request):
+
+	args = {}
+	slides = Slide.objects.filter(published_portfolio=1).order_by('ordering')
+	news = Slide.objects.filter(published_news=1).order_by('ordering')
+	background_image = get_object_or_404(Slide, header_about=1)
+
+
+	args['news'] = news
+	args['slides'] = slides
+	args['background_image'] = background_image
+
+	return render_to_response("about.html", args)
+
 
 
 

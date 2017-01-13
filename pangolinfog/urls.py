@@ -13,6 +13,7 @@ urlpatterns = [
     url(r'products/', include('product.urls')),
     url(r'support/', include('product.urls')),
     url(r'news/$',news),
+    url(r'about/$',about),
     url(r'contact/$',contact),
     url(r'download/', download_file),
     url(r'download_mp3/', download_mp3),

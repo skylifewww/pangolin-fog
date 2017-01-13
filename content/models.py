@@ -160,6 +160,8 @@ class Slide(models.Model):
     published = models.BooleanField(verbose_name="Published", blank=True)
     published_main = models.BooleanField(verbose_name="Carousel", default="", blank=True)
     published_all_prod = models.BooleanField(verbose_name="Products", default="", blank=True)
+    published_news = models.BooleanField(verbose_name="News", default="", blank=True)
+    header_about = models.BooleanField(verbose_name="About", default="", blank=True)
     published_portfolio = models.BooleanField(verbose_name="Portfolio", default="", blank=True)
     ordering = models.IntegerField(verbose_name="Ordering", default=0, blank=True, null=True)
     
