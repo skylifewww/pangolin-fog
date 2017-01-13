@@ -158,8 +158,9 @@ class Slide(models.Model):
     text1 = RichTextUploadingField(blank=True, verbose_name="Text1")
     text2 = RichTextUploadingField(blank=True, verbose_name="Text2")
     published = models.BooleanField(verbose_name="Published", blank=True)
-    published_main = models.BooleanField(verbose_name="Published on main", default="", blank=True)
-    published_all_prod = models.BooleanField(verbose_name="Published on Products page", default="", blank=True)
+    published_main = models.BooleanField(verbose_name="Carousel", default="", blank=True)
+    published_all_prod = models.BooleanField(verbose_name="Products", default="", blank=True)
+    published_portfolio = models.BooleanField(verbose_name="Portfolio", default="", blank=True)
     ordering = models.IntegerField(verbose_name="Ordering", default=0, blank=True, null=True)
     
         

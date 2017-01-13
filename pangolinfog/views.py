@@ -50,7 +50,7 @@ def download_mp3(request):
 
 def main(request):
 	args = {}
-	slides = Slide.objects.filter(published=1).order_by('ordering')
+	slides = Slide.objects.filter(published_main=1).order_by('ordering')
 	categories_main_menu = Category.objects.filter(published_in_menu=1).order_by('ordering')
 	products_main = Product.objects.filter(published_main=1)
 	args['products_main'] = products_main
