@@ -78,11 +78,19 @@ def support_footer():
     supports = Support.objects.filter(published=1).order_by('ordering')
     return {'supports': supports}    
 
-@register.inclusion_tag('all_products/all_prod.html')
+@register.inclusion_tag('header_backgrounds/all_prod.html')
 def all_prod():
     
-    backgraund_image = get_object_or_404(Slide, published_all_prod=1)
-    return {'backgraund_image': backgraund_image}      
+    background_image = get_object_or_404(Slide, published_all_prod=1)
+    return {'background_image': background_image} 
+
+
+@register.inclusion_tag('header_backgrounds/about.html')
+def about():
+    
+    background_image = get_object_or_404(Slide, header_about=1)
+    return {'background_image': background_image}  
+
 
 
 # @register.inclusion_tag('slides/slides.html')

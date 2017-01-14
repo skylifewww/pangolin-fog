@@ -8,13 +8,7 @@
 {% block news %}
 
 
-<header data-background="{{ background_image.slug }}" class="intro introhalf">
-      <!-- Intro Header-->
-      <div class="intro-body">
-        <h1><span class="colortext">P</span>angolin</h1>
-        <h5>Laser Systems Inc.</h5>
-      </div>
-    </header>
+{% about %}
 
 
  <!-- Portfolio-->
@@ -22,7 +16,7 @@
       <div class="container text-center">
         <div class="row_portfolio">
           <div class="col-sm-10 col-sm-offset-1">
-            <h3>About Us</h3>
+            <h3>About Pangolin</h3>
             <ul class="portfolio-sorting list-inline text-center">
               <li><a href="#" data-group="all" class="active">All</a></li>
               <li><a href="#" data-group="Software">Software</a></li>
@@ -57,8 +51,8 @@
 
     
     <!-- Subscribe Section-->
-    <section id="subscribe" class="section-small bg-img5 text-center">
-      <div class="overlay-white"></div>
+    <section id="subscribe" class="section-small bg-img5 bg-dark text-center">
+      <div class="overlay-blue"></div>
       <div class="container">
         <div class="row">
           <div class="col-md-8 col-sm-offset-2">
@@ -79,8 +73,10 @@
         </div>
       </div>
     </section>
+
+
     <!-- News Block-->
-    <section id="news">
+    <section id="news" class="bg-dark">
       <div class="container">
         <h3 class="pull-left">Latest news</h3>
         <div class="pull-right">
@@ -101,7 +97,7 @@
       </div>
     </section>
    
-    <div class="section-small action bg-gray text-center"><a href="#" class="btn btn-dark-border">View All About Pangolin</a></div>
+   {#  <div class="section-small action bg-gray text-center"><a href="#" class="btn btn-dark-border">View All About Pangolin</a></div> #}
    
    
     
