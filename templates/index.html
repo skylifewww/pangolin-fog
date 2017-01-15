@@ -29,6 +29,8 @@
     
 </head>
   <body id="page-top" data-spy="scroll" data-target=".navbar-fixed-top" class="top">	
+
+
   
     <header class="cd-auto-hide-header">
 
@@ -48,21 +50,54 @@
 
     <ul id="cd-navigation">
 
-      <li><a href="/products/products_all/"><span class="colortext">P</span>roducts</a></li> 
+    {% if menu == 'products' %}
+
+      <li><a href="/products/products_all/" style="opacity:1"><span class="colortext">P</span>roducts</a></li> 
+
+    {% else %}
+
+      <li><a href="/products/products_all/">Products</a></li>
+      
+    {% endif %}    
+
+
+     {% if menu == 'supports' %}
+
+      <li><a href="#" style="opacity:1"><span class="colortext">S</span>upport</a></li>
+
+    {% else %}
+
+      <li><a href="#">Support</a></li>
+      
+    {% endif %} 
+
+     {% if menu == 'about' %}
+
+      <li><a href="/about/" style="opacity:1"><span class="colortext">A</span>bout Us</a></li>
+
+    {% else %}
+
+      <li><a href="/about/">About Us</a></li>
+      
+    {% endif %}  
+
+     {% if menu == 'contact' %}
+
+      <li><a href="/contact/" style="opacity:1"><span class="colortext">C</span>ontact</a></li>
+
+    {% else %}
+
+      <li><a href="/contact/">Contact</a></li>
+      
+    {% endif %} 
       
       {# <li><a href="/products/smokemachines/"><span class="colortext">S</span>moke Machines</a></li> #}
 
       {# <li><a href="/products/fluids/"><span class="colortext">F</span>luids</a></li> #}
      
-      <li><a href="#"><span class="colortext">S</span>upport</a></li>
-      <!-- <li><a href="/support/supports/">Support</a></li> -->
-
-
-      <!-- <li><a href="/news/">About Us</a></li> -->
-      <li><a href="/about/"><span class="colortext">A</span>bout Us</a></li>
       {# <li><a href="/news/"><span class="colortext">N</span>ews</a></li> #}
       
-      <li><a href="/contact/"><span class="colortext">C</span>ontact</a></li>
+      
 
        <!-- <li><a href="#" class="dropdown-toggle"><i class="fa fa-shopping-cart fa-lg"></i><span class="badge">3</span><span class="caret"></span></a> -->
               <!-- <ul class="dropdown-menu"> -->

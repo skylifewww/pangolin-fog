@@ -455,7 +455,7 @@ a img:hover {
 
 
 .overlay-white {
-  background: rgba(255, 255, 255, 0.8); }
+  background: rgba(255, 255, 255, 0.3); }
 
 .overlay, .overlay-gray, .overlay-white {
   width: 100%;
@@ -1277,12 +1277,12 @@ a.btn-nav .btn {
 
 .intro .intro-body .brand-heading {
   font-size: 40px;
-  font-weight: 800;
+  font-weight: 600;
   letter-spacing: -2px;
   margin: 0 0 5px; }
 .intro h1 {
   font-size: 60px;
-  font-weight: 900;
+  font-weight: 700;
   line-height: 80px; }
   .intro h1.classic {
     font-size: 100px;
@@ -1424,7 +1424,7 @@ input[type=checkbox], input[type=radio] {
 
 /* Subscribe form */
 #subscribe {
-  color: #bfbaba !important;
+  color: #4c4343 !important;
   text-shadow: none; }
   #subscribe a {
     color: #333 !important; }

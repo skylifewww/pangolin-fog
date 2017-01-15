@@ -32,6 +32,7 @@ def products_all(request, category_id=1):
     products = Product.objects.all().order_by('ordering') 
     
     args['products'] = products
+    args['menu'] = "products"
 
     return render_to_response("products_all.html", args)
 
@@ -145,6 +146,7 @@ def supports(request):
     # supports = Support.objects.filter(product_category__in=current_category.get_descendants(include_self=True))
     # args['current_category'] = current_category
     args['supports'] = supports
+    args['menu'] = "supports"
     
 
     return render_to_response("support.html", args)

@@ -21,7 +21,8 @@ body {
 }
 
 a {
-  color: #8F3985;
+  color: #ECF0F1;
+  opacity: 1;
   text-decoration: none;
 }
 
@@ -547,10 +548,13 @@ a.btn-nav .btn {
 }
 
 .colortext {
-     color: #d62e2e; /* Красный цвет выделения */
+     color: #f32a08; /* Красный цвет выделения */
+     font-size: 1.6rem; 
+     font-weight: 600;
 }
 .cd-primary-nav > ul a:hover, .cd-primary-nav > ul a.active {
-  color: #8F3985;
+  color: #ECF0F1;
+  opacity: 1;
 }
 @media only screen and (min-width: 1024px) {
   .cd-primary-nav {
@@ -903,7 +907,8 @@ body {
 }
 
 a {
-  color: #7e4d7e;
+  color: #ECF0F1;
+  opacity: 1;
   text-decoration: none;
 }
 

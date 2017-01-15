@@ -71,6 +71,7 @@ def news(request):
 
 
 	args['news'] = news
+	args['menu'] = "news"
 	args['slides'] = slides
 	args['background_image'] = background_image
 
@@ -86,6 +87,7 @@ def about(request):
 
 
 	args['news'] = news
+	args['menu'] = "about"
 	args['slides'] = slides
 	args['background_image'] = background_image
 
@@ -97,6 +99,7 @@ def about(request):
 def contact(request):
 
 	args = {}
+	args['menu'] = "contact"
 	categories_main_menu = Category.objects.filter(published_in_menu=1).order_by('ordering')
 	args['categories_main_menu'] = categories_main_menu
 
