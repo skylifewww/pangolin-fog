@@ -489,6 +489,13 @@ section, .row_main {
   padding-bottom: 40px;
   background-color: #fff; }
 
+section, .row_subs {
+  position: relative;
+  z-index: 992;
+  padding-top: 120px;
+  padding-bottom: 100px;
+   }  
+
 
 section, .section {
   position: relative;

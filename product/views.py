@@ -50,6 +50,7 @@ def products(request, category_id=1):
     products = Product.objects.filter(product_category__in=current_category.get_descendants(include_self=True))
     args['current_category'] = current_category
     args['products'] = products
+    args['menu'] = "products"
 
     return render_to_response("products.html", args)
 
@@ -70,6 +71,7 @@ def product(request, category_id, product_id):
     args['current_category'] = current_category
     args['products'] = products
     args['current_product'] = current_product
+    args['menu'] = "products"
 
     return render_to_response("product.html", args)
 
@@ -94,6 +96,7 @@ def smokemachines(request):
     products = Product.objects.filter(product_category__in=current_category.get_descendants(include_self=True))
     args['current_category'] = current_category
     args['products'] = products
+    args['menu'] = "products"
 
     return render_to_response("products.html", args)
 
@@ -117,6 +120,7 @@ def fluids(request):
     products = Product.objects.filter(product_category__in=current_category.get_descendants(include_self=True))
     args['current_category'] = current_category
     args['products'] = products
+    args['menu'] = "products"
 
     return render_to_response("fluids.html", args)    
 
@@ -133,6 +137,7 @@ def fluids_line(request, category_id=1):
     products = Product.objects.filter(product_category__in=current_category.get_descendants(include_self=True))
     args['current_category'] = current_category
     args['products'] = products
+    args['menu'] = "products"
 
     return render_to_response("fluids.html", args)      
 
@@ -164,6 +169,7 @@ def support(request, support_id):
     # args['current_category'] = current_category
     args['supports'] = supports
     args['current_support'] = current_support
+    args['menu'] = "supports"
 
     return render_to_response("support.html", args)
 
