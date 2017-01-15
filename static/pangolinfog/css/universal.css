@@ -1298,6 +1298,11 @@ a.btn-nav .btn {
   .intro h1.classic2 {
     font-size: 110px;
     line-height: 110px; }
+.intro h2 {
+  font-size: 50px;
+  font-weight: 600;
+  line-height: 80px; }
+
 .intro .lead {
   margin: 40px 0 0; }
 
@@ -1431,7 +1436,7 @@ input[type=checkbox], input[type=radio] {
 
 /* Subscribe form */
 #subscribe {
-  color: #4c4343 !important;
+  color:#fff!important;
   text-shadow: none; }
   #subscribe a {
     color: #333 !important; }

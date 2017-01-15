@@ -91,6 +91,8 @@ def about():
     background_image = get_object_or_404(Slide, header_about=1)
     return {'background_image': background_image}  
 
+   
+
 
 
 # @register.inclusion_tag('slides/slides.html')
