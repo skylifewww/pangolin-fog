@@ -1228,7 +1228,7 @@ a.btn-nav .btn {
   position: relative;
   background-repeat: no-repeat;
   background-position: center center;
-  height: 70% !important;
+  height: 100% !important;
   z-index: 0;
   -webkit-background-size: cover;
   -moz-background-size: cover;
