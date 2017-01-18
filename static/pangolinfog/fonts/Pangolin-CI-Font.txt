@@ -1,0 +1,4 @@
+SUI Generis Regular
+Laufweite: 0%
+Vertikal Skalieren: 90%
+Horizontal Skalieren: 90%

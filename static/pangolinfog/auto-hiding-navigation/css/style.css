@@ -13,7 +13,7 @@ html {
 
 body {
   font-size: 1.6rem;
-  font-family: "Hind", sans-serif;
+  font-family: "Sui-Generis", sans-serif;
   color: #25283D;
   background-color: #ECF0F1;
   -webkit-font-smoothing: antialiased;
@@ -24,8 +24,14 @@ a {
   color: #ECF0F1;
   opacity: 1;
   text-decoration: none;
+  font-weight: 600;
+  font-size: 1.8rem;
 }
-
+/*background-color: #03101C;*/
+/*background-color: #0B3C68;*/
+/*background-color: #2B4B68;*/
+/*background-color: #162635;*/
+/*background-color: #1367B5;*/
 
 
 /* -------------------------------- 
@@ -40,8 +46,12 @@ a {
   left: 0;
   width: 100%;
   height: 60px;
-  background-color: #04041f;
-  /*opacity: .7;*/
+  /*background-color: #04041f;*/
+  /*background-color: #092440;*/
+  /*background-color: #03101C;*/
+  background-color: #111417;
+  /*background-color: transparent;*/
+  /*opacity: .98;*/
   /* Force Hardware Acceleration */
   -webkit-transform: translateZ(0);
           transform: translateZ(0);
@@ -63,7 +73,7 @@ a {
 }
 @media only screen and (min-width: 1024px) {
   .cd-auto-hide-header {
-    height: 50px;
+    height: 60px;
   }
 }
 
@@ -531,19 +541,19 @@ a.btn-nav .btn {
   top: 50px;
   left: 0;
   width: 100%;
-   background-color: #3c3f54;
+   background-color: #111417;
   display: none;
   box-shadow: 0 14px 20px rgba(0, 0, 0, 0.2);
 }
 .cd-primary-nav > ul a {
   /* target primary-nav links */
   display: block;
-  height: 50px;
-  line-height: 50px;
+  height: 60px;
+  line-height: 60px;
   padding-left: 5%;
-  opacity: 0.8;
+  opacity: 0.9;
   color: #f2f2f2;
-  font-size: 1.4rem;
+  font-size: 1.6rem;
   border-top: 1px solid #3c3f54;
 }
 
@@ -626,8 +636,10 @@ a.btn-nav .btn {
   clear: both;
   width: 100%;
   height: 50px;
-  background-color: #383948;
-  /*opacity: 1.0;*/
+  background-color: #111417;
+
+  border-top: 1px solid #3c3f54;
+  opacity: 1.0;
   /* Force Hardware Acceleration */
   -webkit-transform: translateZ(0);
           transform: translateZ(0);
@@ -705,7 +717,7 @@ a.btn-nav .btn {
 
 .cd-secondary-nav .product a:hover {
   display: block;
-  color: #8F3985;
+  /*color: #8F3985;*/
   font-size: 12px;
   font-weight: 400;
   opacity: 1;
@@ -724,7 +736,7 @@ a.btn-nav .btn {
 
 .cd-secondary-nav .buy a:hover {
   display: block;
-  color: #8F3985;
+  /*color: #8F3985;*/
   font-weight: 600;
   opacity: 1;
   line-height: 50px;
@@ -737,11 +749,13 @@ a.btn-nav .btn {
   .cd-secondary-nav {
     height: 50px;
     overflow: visible;
+    opacity: 1;
   }
   .cd-secondary-nav ul {
     /* reset mobile style */
     display: block;
     text-align: center;
+    opacity: 1;
   }
   .cd-secondary-nav li {
     /* reset mobile style */
@@ -754,7 +768,9 @@ a.btn-nav .btn {
     line-height: 50px;
   }
   .cd-secondary-nav a.active {
-    box-shadow: inset 0 -3px #8F3985;
+
+    opacity: 1;
+    /*box-shadow: inset 0 -3px #8F3985;*/
   }
 }
 /* ---------------------------------*/
@@ -929,7 +945,7 @@ header {
   width: 100%;
   top: 0;
   left: 0;
-  background-color: #0f1431;
+  background-color: #111417;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   /* Force Hardware Acceleration */
