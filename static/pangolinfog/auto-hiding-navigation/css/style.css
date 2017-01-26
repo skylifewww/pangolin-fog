@@ -552,7 +552,7 @@ a.btn-nav .btn {
   height: 60px;
   line-height: 60px;
   padding-left: 5%;
-  opacity: 0.42;
+  opacity: 0.62;
   color: #f2f2f2;
   font-size: 1.6rem;
   border-top: 1px solid #3c3f54;
@@ -729,10 +729,10 @@ a.btn-nav .btn {
 
 .cd-secondary-nav .buy a {
   display: block;
-  font-size: 12px;
+  font-size: 14px;
   color: #acedfd;
   font-weight: 600;
-  opacity: .6;
+  opacity: .7;
   line-height: 50px;
   padding: 0 1em;
 }

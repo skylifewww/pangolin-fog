@@ -50,8 +50,25 @@
                 {# <li data-target="#carousel-light2" data-slide-to="2"></li> #}
               {# </ol> #}
               <div role="listbox" class="carousel-inner">
-                <div class="item active"><img src="{{ current_product.slug }}" alt="" class="img-responsive center-block"></div>
+
+              {% if current_product.product_title == "Captain D Black" %}
+                <div class="item active"><img src="{% static 'pangolinfog/img/Captain D Black.png' %}" alt="" class="img-responsive center-block"></div>
                  {# <div class="item active"><img src="{{ current_product.slug }}" alt="" class="img-responsive center-block"></div> #}
+
+              {% elif current_product.product_title == "Captain D Phenol" %}
+                <div class="item active"><img src="{% static 'pangolinfog/img/Captain D Phenol.png' %}" alt="" class="img-responsive center-block"></div>
+
+              {% elif current_product.product_title == "Tour Hazer II SF" %}
+                <div class="item active"><img src="{% static 'pangolinfog/img/Tour Hazer II SF.png' %}" alt="" class="img-responsive center-block"></div>  
+
+              {% elif current_product.product_title == "Tour Hazer II S" %}
+                <div class="item active"><img src="{% static 'pangolinfog/img/Tour Hazer II S.png' %}" alt="" class="img-responsive center-block"></div>   
+              
+              {% elif current_product.product_title == "Scotty II" %}
+                <div class="item active"><img src="{% static 'pangolinfog/img/Scotty II.png' %}" alt="" class="img-responsive center-block"></div>    
+                
+
+              {% endif %}
               </div>
             </div>
           </div>
