@@ -345,7 +345,7 @@ class SlideProduct(models.Model):
     pic_slug.allow_tags = True   
 
     class Meta:
-        db_table = 'slide_products'
+        # db_table = 'slide_products'
         verbose_name_plural = "Slides"
         verbose_name = "Slide" 
         ordering = ['ordering'] 
