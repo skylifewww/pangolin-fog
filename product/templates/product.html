@@ -7,52 +7,335 @@
 
 {% block device %}
 
-{% all_prod %}
+
+  {# <header style="background-image:url(/static/pangolinfog/img/pangolin_bg.jpg)" class="intro introhalf"> #}
+  <header style="background-image:url(/static/pangolinfog/img/laser_173.jpg)" class="intro introhalf">
+      <!-- Intro Header-->
+      
+        <div class="intro-body">
+         {# <div class="container"> #}
+          {# <div class="row"> #}
+          
+            <div class="col-md-10 col-md-offset-1">
+           
+
+             <div class="device">
+             {# <h4>2017 © Pangolin Laser Systems Inc.</h4> #}
+
+                <h2 data-wow-duration="2s" class="wow fadeInLeft">{{ current_product.product_title }}</h2>
+                <h4 data-wow-duration="2s" class="wow fadeInRight">{{ current_product.slogan|safe }}</h4>
+
+                 </div>
+
+            {# </div> #}
+             {# </div> #}
+          </div>
+        
+      </div>
+     </header>
  
    
  <!-- Devices Section-->
-    <section id="testimonials">
-    
-    </div>
+
+  <!-- Slider-->
+    <section id="about" class="main">
       <div class="container">
-       
-        <div class="row_products">
+        <div class="row">
 
-            
-          <div class="col-md-9 col-md-offset-3">
-
-              <div class="col-md-9">
-
-                <div class="device">
-
-                <h2>{{ current_product.product_title }}</h2>
-
-                
-
-                <h1>{{ current_product.slogan }}</h1>
-
-               <h3><a href="/download_mp3/">Buy</a></span></span>&nbsp;&nbsp;&nbsp;&nbsp;<a href="#0">Support</a></h3>
-
-                </div>
-
-
-                <img src="{{ current_product.slug }}" alt="" class="img-responsive center-block">
-
-                <div class="device_bottom">
-
-                <h3><a href="/download_mp3/">Buy</a></span></span>&nbsp;&nbsp;&nbsp;&nbsp;<a href="/download/">Manual</a></h3>
-
-                </div>
-                
+ <div data-wow-duration="2s" data-wow-delay=".2s" class="col-md-6  wow zoomIn">
+            <div id="carousel-light2" class="carousel slide carousel-fade">
+              {# <ol class="carousel-indicators"> #}
+                {# <li data-target="#carousel-light2" data-slide-to="0" class="active"></li> #}
+                {# <li data-target="#carousel-light2" data-slide-to="1"></li> #}
+                {# <li data-target="#carousel-light2" data-slide-to="2"></li> #}
+              {# </ol> #}
+              <div role="listbox" class="carousel-inner">
+                <div class="item active"><img src="{{ current_product.slug }}" alt="" class="img-responsive center-block"></div>
+                 {# <div class="item active"><img src="{{ current_product.slug }}" alt="" class="img-responsive center-block"></div> #}
               </div>
+            </div>
           </div>
-           
-        </div>
 
+          <div class="col-md-5 col-md-offset-1">
+          <div class="device">
+          <hr></hr>
+           <h4><li><a href="#"> Price: ${{ current_product.product_price }}</a></li></h4></span></span>&nbsp;&nbsp;&nbsp;&nbsp;(To see dealer price, please call us!<i class="fa fa-phone fa-fw fa-lg"></i> USA Phone: +1-407-299-2088)
+          
+          <hr></hr>
+         
+          <h4><li><a href="#"><i class="fa fa-wrench fa-fw fa-lg"></i> Support</a></li></h4>
+          <hr></hr>
+          <h4><li><a href="/download/"><i class="fa fa-download fa-fw fa-lg"></i> Download Manual</a></li></h4>
+          <hr></hr>
+          <div class="clearfix"></div>
+        
+          </div>
+           </div>
+           <div class="clearfix"></div>
+           <div class="row">
+           </div>
+         
+        </div>
       </div>
     </section>
- 
 
+     <section id="Overview" class="bg-gray2">
+      <div class="container text-center">
+        <div class="row">
+           <div class="device text-center"><h1 style="text-transform:uppercase">Overview</h1></div>
+      </div>
+        <div class="row">
+
+        {% for overview in overviews %}
+          <div data-wow-delay=".2s" class="col-lg-3 col-sm-6 wow fadeIn">
+            <h4><i class="icon-big {{ overview.icon }}"></i> {{ overview.name }}</h4>
+            <p>{{ overview.text|safe }}</p>
+          </div>
+         {% endfor %} 
+          
+        </div>
+      </div>
+    </section>
+
+
+
+{% if current_category.name == "Captain D" %}
+    <div class="small-header bg-img1">
+{% else %}
+
+    <div class="small-header bg-img5">
+    {% endif %}
+      <div class="container">
+        <div class="row">
+          <div class="col-md-6">
+            <h3 style="color:#fff">{{ current_product.product_title }}</h3>
+          </div>
+          <div class="col-md-6 text-right" style="color:#fff">{{ current_product.product_title }}
+            <h6 class="breadcrumb" style="color:#fff">{{ current_product.slogan|safe }}
+            </h6>
+          </div>
+        </div>
+      </div>
+    </div>
+
+
+
+
+    <section id="Tech Specs">
+      <div class="container">
+
+      <div class="row">
+           <div class="device_all"><h1 style="text-transform:uppercase">Tech Specs</h1></div>
+      </div>
+
+        <div class="row">
+        {# <div class="clearfix"></div> #}
+        
+
+
+ {% for spec in specs %}    
+
+ {# <hr></hr> #}
+
+         <div class="col-md-6 spec">
+            <h2>{{ spec.name }}</h2>
+           
+          </div>
+          <div class="col-md-6 spec">
+           <h6>{{ spec.text1|safe }}</h6>
+            <h6>{{ spec.text2|safe }}</h6>
+           <h6>{{ spec.text3|safe }}</h6>
+           
+          </div>
+           {# <div class="clearfix"></div> #}
+         
+        <hr></hr>
+        <div class="clearfix"></div>
+{% endfor %} 
+
+
+   
+
+        
+        </div>
+           </div>
+    </section>
+
+
+    <!-- Portfolio-->
+    <section id="portfolio">
+      
+      <div class="container">
+
+        <div id="grid" class="row portfolio-items">
+
+        {% for slide in slides %}
+           <div data-groups="[&quot;{{ slide.category.name }}&quot;]" class="col-sm-4 no-pad">
+            <div class="portfolio-item"><a href="{{ slide.slug }}" title="{{ slide.name }}" class="swipebox"><img src="{{ slide.slug }}" alt="">
+                <div class="portfolio-overlay">
+                  <div class="caption">
+                    <h5>{{ slide.name }}</h5><span>{{ slide.text1|safe }}</span>
+                  </div>
+                </div></a></div>
+          </div>
+          {% endfor %}
+
+     
+
+        </div>
+      </div>
+    </section>
+
+
+
+
+     <section id="{{ current_product.related_category.name}}" class="products_all">
+    
+       <div class="container">
+       <hr></hr>
+       <div class="row">
+
+            <div class="clearfix"></div>
+
+<div class="row">
+
+ 
+     </div>
+
+
+<div class="clearfix"></div>
+
+<div class="row">
+
+
+    <div class="device_all"><h1  style="text-transform:uppercase">{{ current_product.related_category.name}}</h1></div>
+ 
+     </div>
+
+
+    
+ {% for related in related_products %}    
+
+    {% if related.product_category.parent.id != current_product.product_category.parent.id %}
+     
+          <div class="col-sm-4 col-md-3">
 
   
+          
+
+                {# <div class="device"> #}
+
+                {# <h3><a href="/download/">Manual</a><span></span>&nbsp;&nbsp;&nbsp;&nbsp;<a href="/download_mp3/">Buy</a></h3> #}
+
+                {# </div> #}
+
+          
+                <a href="/products/product/{{related.product_category.id}}/{{related.id}}/"><img src="{{ related.slug }}" alt="" class="img-responsive center-block"></a>
+
+                  <div class="device_main_all">
+
+                <h3>{{ related.product_title }}</h3>
+
+                <h4>{{ related.slogan }}</h4>
+
+                 </div>
+
+
+                 <div class="device_bottom_all">
+
+                <h3>${{ related.product_price }}</span></span>&nbsp;&nbsp;&nbsp;&nbsp;<a href="/products/product/{{related.product_category.id}}/{{related.id}}/">Learning more</a></h3>
+
+                </div>
+
+               
+
+          </div>
+         
+          {% endif %}
+
+
+          
+            {% endfor %}
+
+           
+
+            <div class="clearfix"></div>
+
+            {# {% endfor %} #}
+
+        </div>
+      </div>
+    </section>
+
+
+
+
+   
+
+ <section id="Accessories" class="products_all">
+    
+       <div class="container">
+       <hr></hr>
+       <div class="row">
+
+
+
+<div class="row">
+
+
+    <div class="device_all"><h1  style="text-transform:uppercase">Accessories</h1></div>
+ 
+     </div>
+
+
+    
+ {% for accessory in accessories %}    
+
+   
+     
+          <div class="col-sm-4 col-md-3">
+
+  
+          
+
+                {# <div class="device"> #}
+
+                {# <h3><a href="/download/">Manual</a><span></span>&nbsp;&nbsp;&nbsp;&nbsp;<a href="/download_mp3/">Buy</a></h3> #}
+
+                {# </div> #}
+
+          
+                <a href="#"><img src="{{ accessory.slug }}" alt="" class="img-responsive center-block"></a>
+                {# <a href="/products/product/{{accessory.category.id}}/{{accessory.id}}/"><img src="{{ accessory.slug }}" alt="" class="img-responsive center-block"></a> #}
+
+                  <div class="device_main_all">
+
+                <h3>{{ accessory.name }}</h3>
+
+                <h4>{{ accessory.slogan|safe }}</h4>
+
+                 </div>
+
+
+                 <div class="device_bottom_all">
+
+                {# <h3>${{ accessory.price }}</span></span>&nbsp;&nbsp;&nbsp;&nbsp;<a href="/products/product/{{accessory.category.id}}/{{accessory.id}}/">Learning more</a></h3> #}
+                <h3>${{ accessory.price }}</span></span>&nbsp;&nbsp;&nbsp;&nbsp;<a href="#">Learning more</a></h3>
+
+                </div>
+
+  
+          </div>
+         
+            {% endfor %}
+
+        </div>
+      </div>
+    </section>
+
+
+   
+ 
+  
    {% endblock %}
+

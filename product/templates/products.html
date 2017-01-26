@@ -5,62 +5,162 @@
 {% load thumbnail %}
 {% load content_tags %}
 
-{% block device %}
+{% block products_all %}
 
 {% all_prod %}
 
- <!-- Devices Section-->
-    <section id="testimonials">
- 
+  <!-- Why Section-->
+
+
+
+
+    <section id="news" class="products_all">
     
-      <div class="container">
-{% for product in products %}
+      
+
+       <div class="container">
+       <div class="row">
+
         
-        <div class="row_products">
 
-            
-          <div class="col-md-9 col-md-offset-3">
 
-              <div class="col-md-9">
+     
+<div class="clearfix"></div>
 
-                <div class="device">
+<div class="row">
 
-                <h2>{{ product.product_title }}</h2>
 
-                
 
-                <h1>{{ product.slogan }}</h1>
+    <div class="device_all"><h1  style="text-transform:uppercase">{{ current_category.name }}</h1></div>
 
-                <h3><a href="/products/product/{{current_category.id}}/{{product.id}}/">Learning more</a><span></span>&nbsp;&nbsp;&nbsp;&nbsp;<a href="/download/">Manual</a></h3>
+     </div>
+
+ 
+
+ {% for category in categories %}
+
+  {% if category.published_in_second == 1 %}      
+    
+{% for product in products %}
+
+{% if product.product_category == category %}
+     
+          <div class="col-sm-4 col-md-3">
+
+  
+          
+
+                {# <div class="device"> #}
+
+                {# <h3><a href="/download/">Manual</a><span></span>&nbsp;&nbsp;&nbsp;&nbsp;<a href="/download_mp3/">Buy</a></h3> #}
+
+                {# </div> #}
+
+          
+                <a href="/products/product/{{product.product_category.id}}/{{product.id}}/"><img src="{{ product.slug }}" alt="" class="img-responsive center-block"></a>
+
+                  <div class="device_main_all">
+
+                <h3>{{ product.product_title }}</h3>
+
+                <h4>{{ product.slogan }}</h4>
+
+                 </div>
+
+
+                 <div class="device_bottom_all">
+
+                <h3>${{ product.product_price }}</span></span>&nbsp;&nbsp;&nbsp;&nbsp;<a href="/products/product/{{product.product_category.id}}/{{product.id}}/">Learning more</a></h3>
 
                 </div>
 
+               
 
-                <img src="{{ product.slug }}" alt="" class="img-responsive center-block">
-
-                <div class="device_bottom">
-
-                <h3><a href="/products/product/{{current_category.id}}/{{product.id}}/">Learning more</a><span></span>&nbsp;&nbsp;&nbsp;&nbsp;<a href="/download_mp3/">Buy</a></h3>
-
-                </div>
-                
-              </div>
           </div>
+         
+          {% endif %}
+
+
+          
+            {% endfor %}
 
            
+
+            <div class="clearfix"></div>
+            {% endif %}
+
+            {% endfor %}
+
         </div>
-
- {% endfor %}
-
-  <div class="#viewport">
-    <div class="#viewport .smoke"></div> 
- </div>
-        
       </div>
     </section>
- 
 
+
+
+
+
+     <section id="Accessories" class="products_all">
+    
+       <div class="container">
+       <hr></hr>
+       <div class="row">
+
+
+
+<div class="row">
+
+
+    <div class="device_all"><h1  style="text-transform:uppercase">Accessories</h1></div>
+ 
+     </div>
+
+
+    
+ {% for accessory in accessories %}    
 
    
+     
+          <div class="col-sm-4 col-md-3">
 
+  
+          
+
+                {# <div class="device"> #}
+
+                {# <h3><a href="/download/">Manual</a><span></span>&nbsp;&nbsp;&nbsp;&nbsp;<a href="/download_mp3/">Buy</a></h3> #}
+
+                {# </div> #}
+
+          
+                <a href="#"><img src="{{ accessory.slug }}" alt="" class="img-responsive center-block"></a>
+                {# <a href="/products/product/{{accessory.category.id}}/{{accessory.id}}/"><img src="{{ accessory.slug }}" alt="" class="img-responsive center-block"></a> #}
+
+                  <div class="device_main_all">
+
+                <h3>{{ accessory.name }}</h3>
+
+                <h4>{{ accessory.slogan|safe }}</h4>
+
+                 </div>
+
+
+                 <div class="device_bottom_all">
+
+                {# <h3>${{ accessory.price }}</span></span>&nbsp;&nbsp;&nbsp;&nbsp;<a href="/products/product/{{accessory.category.id}}/{{accessory.id}}/">Learning more</a></h3> #}
+                <h3>${{ accessory.price }}</span></span>&nbsp;&nbsp;&nbsp;&nbsp;<a href="#">Learning more</a></h3>
+
+                </div>
+
+               
+
+          </div>
+          
+            {% endfor %}
+
+        </div>
+      </div>
+    </section>
+
+
+    
    {% endblock %}

@@ -11,8 +11,8 @@ urlpatterns = [
 
     url(r'^product/(?P<category_id>\d+)/(?P<product_id>\d+)/$', product.views.product),
     url(r'^products_all/$', product.views.products_all),
-    url(r'^smokemachines/$', product.views.smokemachines),
-    url(r'^fluids/$', product.views.fluids),
+    url(r'^smokemachines/$', product.views.products_all),
+    url(r'^fluids/$', product.views.products_all),
     url(r'^(?P<category_id>\d+)/$', product.views.products),
     url(r'^fluids/(?P<category_id>\d+)/$', product.views.fluids_line),
     url(r'^supports/$', product.views.supports),

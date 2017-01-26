@@ -37,6 +37,9 @@ class Category(MPTTModel):
     def get_slides(self):
         return Slide.objects.filter(category=self)
 
+    def get_parent(self):
+        return self.parent    
+
     class Meta:
         db_table = "category"
         verbose_name = "Category"
@@ -147,13 +150,13 @@ class Product(models.Model):
     short_text = RichTextUploadingField(blank=True, verbose_name="Short text")
     full_text = RichTextUploadingField(blank=True, verbose_name="Full text")
     published = models.BooleanField(verbose_name="Published", blank=True)
-    published_main = models.BooleanField( blank=True, default="", verbose_name="Published on main page",)
+    published_main = models.BooleanField( blank=True, default="", verbose_name="Published on main page")
+    related_products = models.BooleanField( blank=True, default="", verbose_name="Published on product page")
+    related_category = models.ForeignKey(Category, null=True, blank=True, verbose_name="Related Category")
     ordering = models.IntegerField(verbose_name="Ordering", default=0, blank=True, null=True)
     
-    
-   
 
-    def __unicode__(self):
+    def __str__(self):
         return self.product_title
 
     class Meta:
@@ -194,8 +197,74 @@ class MenuItemProduct(models.Model):
         verbose_name_plural = "Menu Items for Products"
         verbose_name = "Menu Item"
         ordering = ['ordering']
+
+
+class Overview(models.Model):
+    category = models.ForeignKey(Category, null=True, blank=True, verbose_name="Category")
+    name = models.CharField(max_length=200, verbose_name="Name")
+    text = RichTextUploadingField(blank=True, verbose_name="Text")
+    icon = models.CharField(max_length=250, blank=True, verbose_name="Icon")
+    published = models.BooleanField(verbose_name="Published")
+    ordering = models.IntegerField(verbose_name="Ordering", default=0, blank=True, null=True)
+
+    def __unicode__(self):
+        return self.name
+
+    class Meta:
+        db_table = 'overviews'
+        verbose_name_plural = "Overviews"
+        verbose_name = "Overview"
+        ordering = ['ordering'] 
+
+
+
+class Accessory(models.Model):
+    category = models.ManyToManyField(Category, related_name="accessories", related_query_name="access", blank=True, verbose_name="Category")
+    name = models.CharField(max_length=200, verbose_name="Name")
+    slogan = models.CharField(max_length=250, verbose_name="Accessory Slogan")
+    text = RichTextUploadingField(blank=True, verbose_name="Text")
+    slug = models.CharField(max_length=250, blank=True, verbose_name="Pic")
+    price = models.FloatField(verbose_name="Price", default=0, blank=True, null=True)
+    published = models.BooleanField(verbose_name="Published")
+    ordering = models.IntegerField(verbose_name="Ordering", default=0, blank=True, null=True)
+
+    def __unicode__(self):
+        return self.name
+
+    class Meta:
+        db_table = 'accessories'
+        verbose_name_plural = "Accessories"
+        verbose_name = "Accessory"
+        ordering = ['ordering'] 
+
+    def pic_slug(self):
+        if self.slug:
+            return u'<img src="%s" width="70"/>' % self.slug
+        else:
+            return '(none)'
+    pic_slug.short_description = 'Accessory image'
+    pic_slug.allow_tags = True                      
         
     
+
+class TechSpec(models.Model):
+    product = models.ForeignKey(Product, null=True, blank=True, verbose_name="Product")
+    name = models.CharField(max_length=200, verbose_name="Name")
+    text1 = RichTextUploadingField(blank=True, verbose_name="Text1")
+    text2 = RichTextUploadingField(blank=True, verbose_name="Text2")
+    text3 = RichTextUploadingField(blank=True, verbose_name="Text3")
+    published = models.BooleanField(verbose_name="Published")
+    ordering = models.IntegerField(verbose_name="Ordering", default=0, blank=True, null=True)
+
+    def __unicode__(self):
+        return self.name
+
+    class Meta:
+        db_table = 'techSpecs'
+        verbose_name_plural = "TechSpecs"
+        verbose_name = "TechSpec"
+        ordering = ['ordering']    
+
 
 
 class Support(models.Model):
@@ -245,21 +314,19 @@ class Support(models.Model):
 
     
 
-# class Slide(models.Model):
-#     category = TreeForeignKey(Category, related_name="slides_article", verbose_name="Category", default="", blank=True, null=True)
-#     name = models.CharField(max_length=250, verbose_name="Name")
-#     product = models.ForeignKey(Product, null=True, blank=True, verbose_name="Product")
-#     # image = models.ImageField(upload_to=make_upload_path, blank=True,  verbose_name="Изображение")
-#     slug = models.CharField(max_length=250, blank=True, verbose_name="Url pic")
-#     text1 = RichTextUploadingField(blank=True, verbose_name="Text1")
-#     text2 = RichTextUploadingField(blank=True, verbose_name="Text2")
-#     published = models.BooleanField(verbose_name="Published", blank=True)
-#     published_main = models.BooleanField(verbose_name="Published on main", default="", blank=True)
-#     ordering = models.IntegerField(verbose_name="Ordering", default=0, blank=True, null=True)
+class SlideProduct(models.Model):
+    category = models.ForeignKey(Category, related_name="slides", verbose_name="Category", default="", blank=True, null=True)
+    name = models.CharField(max_length=250, verbose_name="Name")
+    # image = models.ImageField(upload_to=make_upload_path, blank=True,  verbose_name="Изображение")
+    slug = models.CharField(max_length=250, blank=True, verbose_name="Url pic")
+    text1 = RichTextUploadingField(blank=True, verbose_name="Text1")
+    text2 = RichTextUploadingField(blank=True, verbose_name="Text2")
+    published = models.BooleanField(verbose_name="Published", blank=True)
+    ordering = models.IntegerField(verbose_name="Ordering", default=0, blank=True, null=True)
     
         
-#     def __unicode__(self):
-#         return self.name
+    def __str__(self):
+        return self.name
 
     # def pic(self):
     #     if self.image:
@@ -269,17 +336,17 @@ class Support(models.Model):
     # pic.short_description = u'Большая картинка'
     # pic.allow_tags = True
 
-    # def pic_slug(self):
-    #     if self.slug:
-    #         return u'<img src="%s" width="70"/>' % self.slug
-    #     else:
-    #         return '(none)'
-    # pic_slug.short_description = 'Slide'
-    # pic_slug.allow_tags = True   
+    def pic_slug(self):
+        if self.slug:
+            return u'<img src="%s" width="70"/>' % self.slug
+        else:
+            return '(none)'
+    pic_slug.short_description = 'Slide'
+    pic_slug.allow_tags = True   
 
-    # class Meta:
-    #     verbose_name_plural = "Slides"
-    #     verbose_name = "Slide"  
+    class Meta:
+        verbose_name_plural = "Slides"
+        verbose_name = "Slide"  
     
 
 

@@ -2,9 +2,39 @@
 {# {% for product in products %} #}
            {# <li><h6 class="no-pad"><a href="/products/product/{{product.product_category.id}}/{{product.id}}/">{{ product.product_title }}</a></h6></li> #}
             {# {% endfor %} #}
-
+<div id="accordion" role="tablist" aria-multiselectable="true" class="panel-group">
+             
 
 {% for category in categories %}
-           <li><h6 class="no-pad"><a href="/products/fluids/{{category.id}}/">{{ category.name }}</a></h6></li>
+
+<div class="panel"> 
+
+<div id="heading{{ category.id }}" role="tab" class="panel-heading">
+                  <h6 class="panel-title"><a role="button" data-toggle="collapse" data-parent="#accordion" href="#{{ category.id }}" aria-expanded="false" aria-controls="{{ category.id }}" class="collapsed">{{ category.name }}</a></h6>
+                </div>
+
+
+
+
+
+           
+           <div id="{{ category.id }}" role="tabpanel" aria-labelledby="headingOne" class="panel-collapse collapse">
+           <div class="panel-body">
+                      {% for product in products %}
+
+{% if product.product_category == category %}
+
+                  <li><h8 class="no-pad"><a href="/products/product/{{product.product_category.id}}/{{product.id}}/">{{ product.product_title }}</a></h></li>
+         
+                
+                           {% endif %}
             {% endfor %}
+            </div>
+            </div>
+             </div> 
+           
+            {% endfor %}
+             
+           
+            </div>
 </ul>

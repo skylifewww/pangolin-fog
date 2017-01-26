@@ -10,7 +10,11 @@
 {% all_prod %}
 
   <!-- Why Section-->
-    <section id="news" class="section-small">
+
+
+
+
+    <section id="news" class="products_all">
     
       
 
@@ -34,12 +38,11 @@
      
 <div class="clearfix"></div>
 
-<div class="row">
-
+ <div class="row">
 
     {# <div class="pull-left">  #}
 
-    <div class="device_all"><h1>{{ category.name }}</h1></div>
+    <div class="device_all"><h1  style="text-transform:uppercase">{{ category.name }}</h1></div>
         
      {# </div> #}
      </div>
@@ -93,16 +96,78 @@
 
             <div class="clearfix"></div>
 
-              
-
-            
             {% endfor %}
 
-        
         </div>
-
-        
       </div>
     </section>
+
+
+
+
+
+     <section id="Accessories" class="products_all">
+    
+       <div class="container">
+       <hr></hr>
+       <div class="row">
+
+
+
+<div class="row">
+
+
+    <div class="device_all"><h1  style="text-transform:uppercase">Accessories</h1></div>
+ 
+     </div>
+
+
+    
+ {% for accessory in accessories %}    
+
+   
+     
+          <div class="col-sm-4 col-md-3">
+
+  
+          
+
+                {# <div class="device"> #}
+
+                {# <h3><a href="/download/">Manual</a><span></span>&nbsp;&nbsp;&nbsp;&nbsp;<a href="/download_mp3/">Buy</a></h3> #}
+
+                {# </div> #}
+
+          
+                <a href="#"><img src="{{ accessory.slug }}" alt="" class="img-responsive center-block"></a>
+                {# <a href="/products/product/{{accessory.category.id}}/{{accessory.id}}/"><img src="{{ accessory.slug }}" alt="" class="img-responsive center-block"></a> #}
+
+                  <div class="device_main_all">
+
+                <h3>{{ accessory.name }}</h3>
+
+                <h4>{{ accessory.slogan|safe }}</h4>
+
+                 </div>
+
+
+                 <div class="device_bottom_all">
+
+                {# <h3>${{ accessory.price }}</span></span>&nbsp;&nbsp;&nbsp;&nbsp;<a href="/products/product/{{accessory.category.id}}/{{accessory.id}}/">Learning more</a></h3> #}
+                <h3>${{ accessory.price }}</span></span>&nbsp;&nbsp;&nbsp;&nbsp;<a href="#">Learning more</a></h3>
+
+                </div>
+
+               
+
+          </div>
+          
+            {% endfor %}
+
+        </div>
+      </div>
+    </section>
+
+
     
    {% endblock %}

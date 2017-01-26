@@ -67,7 +67,7 @@ def top_text_big():
 @register.inclusion_tag('footer/category_footer.html')
 def category_footer():
     
-    products = Product.objects.filter(published=1).order_by('ordering')
+    products = Product.objects.all().order_by('ordering')
     categories = Category.objects.filter(published_in_second=1).order_by('ordering')
     return {'categories': categories, 'products': products} 
 

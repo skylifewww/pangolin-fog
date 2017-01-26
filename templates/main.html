@@ -7,57 +7,59 @@
 
 {% block main %}
 
- <script src="{% static 'pangolinfog/js/jquery-1.12.4.min.js' %}"></script>
+  <script src="{% static 'pangolinfog/js/jquery-1.12.4.min.js' %}"></script>
     <!-- Bootstrap Core JavaScript-->
-    <script src="{% static 'pangolinfog/js/bootstrap.min.js' %}"></script>
+     <script src="{% static 'pangolinfog/js/bootstrap.min.js' %}"></script>
 
 
 
 <!-- Intro Slider-->
     <header id="Carousel-intro" data-ride="carousel" class="intro carousel carousel-big slide carousel-fade">
+    
       <!-- Indicators-->
-      <ol class="carousel-indicators">
-        <li data-target="#Carousel-intro" data-slide-to="0" class="active"></li>
-        <li data-target="#Carousel-intro" data-slide-to="1"></li>
-        <li data-target="#Carousel-intro" data-slide-to="2"></li>
-        <li data-target="#Carousel-intro" data-slide-to="3"></li>
-        {# <li data-target="#Carousel-intro" data-slide-to="4"></li> #}
-        {# <li data-target="#Carousel-intro" data-slide-to="5"></li> #}
-        {# <li data-target="#Carousel-intro" data-slide-to="6"></li> #}
-      </ol>
+      {# <ol class="carousel-indicators"> #}
+        {# <li data-target="#Carousel-intro" data-slide-to="0" class="active"></li> #}
+        {# <li data-target="#Carousel-intro" data-slide-to="1"></li> #}
+        {# <li data-target="#Carousel-intro" data-slide-to="2"></li> #}
+        {# <li data-target="#Carousel-intro" data-slide-to="3"></li> #}
+     {# </ol> #}
 
        <div class="carousel-inner">
 
 
-  {% for slide in slides %}
+  {# {% for slide in slides %} #}
 
-  {% if slide.ordering == 1 %}
-
-   
+  {# {% if slide.ordering == 1 %} #}
 
   <div class="item active">
  
-          <div style="background-image:url({{ slide.slug }})" class="fill">
+          {# <div style="background-image:url({{ slide.slug }})" class="fill"> #}
+           <div style="background-image:url(/static/pangolinfog/img/slide_prod_grey.png)" class="fill">
             <div class="intro-body">
-              <h2 data-wow-delay=".4s" data-wow-duration="2s" class="wow fadeOutUp">{{ slide.text1|safe }}</h2>
+              {# <h2 data-wow-delay=".4s" data-wow-duration="2s" class="wow fadeOutUp">{{ slide.text1|safe }}</h2> #}
+              {# <h1 class="wow fadeInDown">{{ slide.text2|safe }}</h1> #}
+             {# <div data-wow-delay="1s" class="scroll-btn hidden-xs wow fadeInDown"><a href="#about" class="page-scroll"><span class="mouse"><span class="weel"><span></span></span></span></a></div> #}
+            </div>
+           </div>
+          </div>
+
+           <div class="item">
+          <div style="background-image:url(/static/pangolinfog/img/slide_TH2_grey.png)" class="fill">
+          
+            <div class="intro-body">
+              {# <h2 data-wow-delay=".4s" data-wow-duration="2s" class="wow fadeOutUp">{{ slide.text1|safe }}</h2> #}
               {# <h1 class="wow fadeInDown">{{ slide.text2|safe }}</h1> #}
               {# <div data-wow-delay="1s" class="scroll-btn hidden-xs wow fadeInDown"><a href="#about" class="page-scroll"><span class="mouse"><span class="weel"><span></span></span></span></a></div> #}
             </div>
-    
+             
           </div>
-          </canvas>
-        </div>
-       
+        </div>  
 
-        {% else %}
-
-       
-
-  <div class="item">
-          <div style="background-image:url({{ slide.slug }})" class="fill">
+          <div class="item">
+          <div style="background-image:url(/static/pangolinfog/img/slide_svg2_animated.svg)" class="fill">
           
             <div class="intro-body">
-              <h2 data-wow-delay=".4s" data-wow-duration="2s" class="wow fadeOutUp">{{ slide.text1|safe }}</h2>
+              {# <h2 data-wow-delay=".4s" data-wow-duration="2s" class="wow fadeOutUp">{{ slide.text1|safe }}</h2> #}
               {# <h1 class="wow fadeInDown">{{ slide.text2|safe }}</h1> #}
               {# <div data-wow-delay="1s" class="scroll-btn hidden-xs wow fadeInDown"><a href="#about" class="page-scroll"><span class="mouse"><span class="weel"><span></span></span></span></a></div> #}
             </div>
@@ -65,18 +67,53 @@
           </div>
         </div>   
 
-       
-         {% endif %}  
+         <div class="item">
+          <div style="background-image:url(/static/pangolinfog/img/slide_svg12_animated.svg)" class="fill">
+          
+            <div class="intro-body">
+              {# <h2 data-wow-delay=".4s" data-wow-duration="2s" class="wow fadeOutUp">{{ slide.text1|safe }}</h2> #}
+              {# <h1 class="wow fadeInDown">{{ slide.text2|safe }}</h1> #}
+              {# <div data-wow-delay="1s" class="scroll-btn hidden-xs wow fadeInDown"><a href="#about" class="page-scroll"><span class="mouse"><span class="weel"><span></span></span></span></a></div> #}
+            </div>
+             
+          </div>
+        </div>  
 
-         {% endfor %}
 
-      <!-- Controls--><a href="#Carousel-intro" data-slide="prev" class="left carousel-control"><span class="icon-prev"></span></a><a href="#Carousel-intro" data-slide="next" class="right carousel-control"><span class="icon-next"></span></a>
+         </div>
+
+      {# <!-- Controls--><a href="#Carousel-intro" data-slide="prev" class="left carousel-control"><span class="icon-prev"></span></a><a href="#Carousel-intro" data-slide="next" class="right carousel-control"><span class="icon-next"></span></a> #}
+     
     </header>
     <!-- Slider-->
 
 
+
+     <section id="main" class="section-small_main bg-dark">
+      <div class="container text-center">
+        <div class="row">
+          <div class="col-sm-12">
+            <div class="device"><h1 style="text-transform:uppercase">More than 50 years experience in laser</h1></div>
+            <p>
+             <div class="device_main">
+            
+<h4> Pangolin has already more than 50 years is the best engine for development of laser technologies. We know very well how to make our products so that they meet the highest requirements of modern laser show.</h4>
+
+
+<h4>And now we are pleased to introduce our company as a reliable partner Smoke Factory and their product lines that highlight our perfection. This smoke machines and fluid for these machines.</h4></div></p>
+            <h2 class="classic">The Pangolin Team</h2>
+          </div>
+          
+        </div>
+      </div>
+    </section>
+
+
+
+
+
     <!-- Why Section-->
-    <section class="main">
+    <section class="main" class="bg-dark">
     {# <section class="bg-dark"> #}
       <div class="container text-center">
         
@@ -105,8 +142,95 @@
       </div>
     </section>
 
-   <script src="{% static 'pangolinfog/js/smoke.js' %}"</script>
-   {# // <script src="{% static 'pangolinfog/js/universal.js' %}"></script> #}
+
+
+{# // <script src="{% static 'pangolinfog/js/smoke_club.js' %}"</script> #}
+  <script src="{% static 'pangolinfog/js/smoke.js' %}"</script>
+    {# // <script src="{% static 'pangolinfog/js/smoke_club.js' %}"</script> #}
+      <script src="{% static 'pangolinfog/js/universal.js' %}"></script>
+
     
    {% endblock %}
+
+   {# <section id="portfolio" class="portfolio_main portfolio-wide bg-dark"> #}
+     {# <div class="container-fluid"> #}
+
+        {# <div id="grid" class="row portfolio-items"> #}
+
+        {# {% for slide in slides %} #}
+           {# <div data-groups="[&quot;{{ slide.category.name }}&quot;]" class="col-sm-4 no-pad"> #}
+            {# <div class="portfolio-item"><a href="{{ slide.category }}" title="{{ slide.name }}" class="swipebox"><img src="{{ slide.slug }}" alt=""> #}
+                {# <div class="portfolio-overlay"> #}
+                  {# <div class="caption"> #}
+                    {# <h5>{{ slide.name }}</h5><span>{{ slide.text1|safe }}</span> #}
+                  {# </div> #}
+                {# </div></a></div> #}
+          {# </div> #}
+          {# {% endfor %} #}
+
+        {# </div> #}
+      {# </div> #}
+    {# </section> #}
+
+
+   {# <div data-wow-duration="2s" data-wow-delay=".2s" class="col-lg-5 col-lg-offset-1 wow zoomIn"> #}
+            {# <div id="carousel-light2" class="carousel slide carousel-fade"> #}
+              {# <ol class="carousel-indicators"> #}
+                {# <li data-target="#carousel-light2" data-slide-to="0" class="active"></li> #}
+                {# <li data-target="#carousel-light2" data-slide-to="1"></li> #}
+                {# <li data-target="#carousel-light2" data-slide-to="2"></li> #}
+              {# </ol> #}
+              {# <div role="listbox" class="carousel-inner"> #}
+
+              {# {% for slide in slides %} #}
+
+  {# {% if slide.ordering == 1 %} #}
+
+   
+
+  {# <div class="item active"><img src="{{ slide.slug }}" alt="" class="img-responsive center-block"></div> #}
+       
+
+        {# {% else %} #}
+
+       
+
+  {# <div class="item"><img src="{{ slide.slug }}" alt="" class="img-responsive center-block"></div>   #}
+
+       
+         {# {% endif %}   #}
+
+         {# {% endfor %} #}
+                
+              
+              {# </div> #}
+            {# </div> #}
+          {# </div> #}
+
+
+
+
+        <div class="item">
+          <div style="background-image:url(/static/pangolinfog/img/P_SVG_22_animated.svg)" class="fill">
+          
+            <div class="intro-body">
+              {# <h2 data-wow-delay=".4s" data-wow-duration="2s" class="wow fadeOutUp">{{ slide.text1|safe }}</h2> #}
+              {# <h1 class="wow fadeInDown">{{ slide.text2|safe }}</h1> #}
+              {# <div data-wow-delay="1s" class="scroll-btn hidden-xs wow fadeInDown"><a href="#about" class="page-scroll"><span class="mouse"><span class="weel"><span></span></span></span></a></div> #}
+            </div>
+             
+          </div>
+        </div>  
+
+        <div class="item">
+          <div style="background-image:url(/static/pangolinfog/img/P_SVG_22_animated.svg)" class="fill">
+          
+            <div class="intro-body">
+              {# <h2 data-wow-delay=".4s" data-wow-duration="2s" class="wow fadeOutUp">{{ slide.text1|safe }}</h2> #}
+              {# <h1 class="wow fadeInDown">{{ slide.text2|safe }}</h1> #}
+              {# <div data-wow-delay="1s" class="scroll-btn hidden-xs wow fadeInDown"><a href="#about" class="page-scroll"><span class="mouse"><span class="weel"><span></span></span></span></a></div> #}
+            </div>
+             
+          </div>
+        </div>  
 

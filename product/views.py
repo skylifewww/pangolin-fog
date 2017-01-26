@@ -6,12 +6,48 @@ from django.core.exceptions import ObjectDoesNotExist
 from django.template.context_processors import csrf
 from django.contrib import auth
 from django.core.paginator import Paginator
+from django.core.exceptions import ObjectDoesNotExist
 # from django.contrib.auth.models import User
 # from pangolinfog.users.models import User
 from django.template import loader, Context, RequestContext
+from django.db.models.constants import LOOKUP_SEP
+from django.db.models import sql
+from django.db import connection
+import json
 
 
-# Create your views here.
+# Create your views here. 
+
+
+def load_related_m2m(object_list, field):                                      
+
+    select_fields = ['pk']
+    related_field = object_list.model._meta.get_field(field)
+    related_model = related_field.rel.to
+    cache_name = 'all_%s' % field                                              
+
+    for f in related_model._meta.local_fields:
+        select_fields.append('%s%s%s' % (field, LOOKUP_SEP, f.column))         
+
+    query = sql.Query(object_list.model)
+    query.add_fields(select_fields)
+    query.add_filter(('pk__in', [obj.pk for obj in object_list]))
+
+    related_dict = {}
+    cursor = connection.cursor()
+    cursor.execute(str(query))
+
+    for row in cursor.fetchall():
+        if row[2]:
+            related_dict.setdefault(row[0], []).append(related_model(*row[1:]))
+
+    for obj in object_list:
+        try:
+            setattr(obj, cache_name, related_dict[obj.pk])
+        except KeyError:
+            setattr(obj, cache_name, [])
+
+    return object_list
 
 
 def hardware(request):
@@ -29,9 +65,11 @@ def products_all(request, category_id=1):
     args = {}
  
     args["categories_all"] = Category.objects.filter(published=1).order_by('ordering') 
-    products = Product.objects.all().order_by('ordering') 
+    products = Product.objects.all().order_by('ordering')
+    accessories = Accessory.objects.all().order_by('ordering')  
     
     args['products'] = products
+    args['accessories'] = accessories
     args['menu'] = "products"
 
     return render_to_response("products_all.html", args)
@@ -41,35 +79,75 @@ def products_all(request, category_id=1):
 def products(request, category_id=1):
 
     args = {}
+
     current_category = Category.objects.get(id=category_id)
-    categories = Category.objects.filter(children__in=current_category.get_descendants(include_self=True))
-    categories_second_menu = Category.objects.filter(published_in_second=1).order_by('ordering')
+
+    args["categories_all"] = Category.objects.filter(published=1).order_by('ordering') 
+    # categories = Category.objects.filter(children__in=current_category.get_descendants(include_self=True))
+    categories = Category.objects.filter(published_in_second=1).order_by('ordering')
     args['categories'] = categories
-    args['categories_second_menu'] = categories_second_menu
+    # args['categories_second_menu'] = categories_second_menu
+    accessories = Accessory.objects.all().order_by('ordering') 
     
     products = Product.objects.filter(product_category__in=current_category.get_descendants(include_self=True))
     args['current_category'] = current_category
     args['products'] = products
+    args['accessories'] = accessories
     args['menu'] = "products"
 
     return render_to_response("products.html", args)
 
+# def products(request, category_id=1):
+
+#     args = {}
+#     current_category = Category.objects.get(id=category_id)
+#     args["categories_all"] = Category.objects.filter(children__in=current_category.get_descendants(include_self=True))
+#     categories_second_menu = Category.objects.filter(published_in_second=1).order_by('ordering')
+#     accessories = Accessory.objects.filter(category=current_category.id)
+#     # args['categories'] = categories
+#     args['categories_second_menu'] = categories_second_menu
+    
+#     products = Product.objects.filter(product_category__in=current_category.get_descendants(include_self=True))
+#     args['current_category'] = current_category
+#     args['products'] = products
+#     args['menu'] = "products"
+#     args['accessories'] = accessories
+
+#     return render_to_response("products.html", args)
+
 
 def product(request, category_id, product_id):
 
+       
+
+    # load_related_m2m(all_plays, 'team')
+    # load_related_m2m(all_plays, 'enemy_team')
+    # load_related_m2m(all_plays, 'place_game')
+
+    # return render_to_response("plays.html", {"all_plays": all_plays, "cat_play": current_cat_play}) 
+
     args = {}
     current_category = Category.objects.get(id=category_id)
+    accessories = Accessory.objects.filter(category=current_category.id)
     categories = Category.objects.filter(children__in=current_category.get_descendants(include_self=True))
     categories_second_menu = Category.objects.filter(published_in_second=1).order_by('ordering')
-    args['categories'] = categories
-    args['categories_second_menu'] = categories_second_menu
     current_product = Product.objects.get(id=product_id)
-    current_category = Category.objects.get(id=category_id)
+    related_products = Product.objects.filter(related_products=1)
+    overviews = Overview.objects.filter(category_id=current_category.id)
+    slides = SlideProduct.objects.filter(category_id=current_category.id)
+    specs = TechSpec.objects.filter(product_id=current_product.id)
     products = Product.objects.filter(product_category__in=current_category.get_descendants(include_self=True))
     menu_items = MenuItemProduct.objects.filter(category__in=categories.get_descendants(include_self=True))
+    args['categories'] = categories
+    args['accessories'] = accessories
+    args['categories_second_menu'] = categories_second_menu
     args['menu_items'] = menu_items
     args['current_category'] = current_category
     args['products'] = products
+    args['related_products'] = related_products
+    args['slides'] = slides
+    args['overviews'] = overviews
+    args['specs'] = specs
     args['current_product'] = current_product
     args['menu'] = "products"
 

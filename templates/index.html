@@ -130,7 +130,7 @@
 
 
 
-  {% if products and not categories_all %}
+  {% if current_product and not categories_all %}
 
    <nav class="cd-secondary-nav">
     <ul>
@@ -145,13 +145,13 @@
 
       {% else %}
 
-      <li class="product"><a href="#0">{{ menu_item.name }}</a></li> 
+      <li class="product"><a href="#{{ menu_item.name }}">{{ menu_item.name }}</a></li> 
 
       {% endif %}
 
       {% endfor %}
 
-      <li><a href="/products/{{current_category.id}}/">all {{ current_category.name }}</a></li>
+      <li><a href="/products/{{current_category.parent.id}}/">all {{ current_category.parent.name }}</a></li>
 
       {% else %}
 
@@ -159,13 +159,13 @@
 
       {% for product in products %}
       
-      <li><a href="/products/product/{{current_category.id}}/{{product.id}}/">{{ product.product_title }}</a></li>
+      <li class="product"><a href="/products/product/{{current_category.id}}/{{product.id}}/">{{ product.product_title }}</a></li>
 
       {% endfor %}
 
-      <li><a href="#0">Accessories</a></li> 
+      <li><a href="#Accessories">Accessories</a></li> 
 
-      <li><a href="#0">Compare</a></li> 
+      {# <li class="product"><a href="#0">Compare</a></li>  #}
 
       {% endif %}
 
@@ -181,21 +181,23 @@
 
   </nav> <!-- .cd-secondary-nav -->
 
-     
 
-
-
-       {% elif categories %}
+       {% elif categories_all %}
 
 <nav class="cd-secondary-nav">
     <ul>
 
     
- {% for category in categories_second_menu %}
+ {% for category in categories_all %}
+  {% if category.published_in_second == 0 %}
 
-      <li><a href="/products/fluids/{{category.id}}/">{{ category.name }}</a></li>
+      <li><a href="/products/{{category.id}}/">{{ category.name }}</a></li>
+
+      {% endif %}
 
       {% endfor %}
+
+      <li><a href="#Accessories">Accessories</a></li> 
 
     </ul>
   </nav> <!-- .cd-secondary-nav -->
@@ -204,10 +206,6 @@
 
 
   </header> <!-- .cd-auto-hide-header -->
-
- {# <div class="small-header bg-dark"></div> #}
-
-
 
 
   <!-- Content Section-->  
@@ -230,11 +228,34 @@
 {% block products_all %}{% endblock %} 
 
 
-
+  <!-- Subscribe Section-->
+    <section id="subscribe"  class="section-small bg-img5 text-center">
+      <div class="overlay-dark"></div>
+      <div class="container">
+        <div class="row_subs">
+          <div class="col-md-8 col-sm-offset-2">
+            <h3>Subscribe</h3>
+            <h5> to be the first to know about our new products</h5>
+            <!-- MailChimp Signup Form - Replace the form action in the line below with your MailChimp embed action! For more information on how to do this please visit the Docs!-->
+            <form id="mc-embedded-subscribe-form" action="" method="post" name="mc-embedded-subscribe-form" target="_blank" novalidate="" class="form-inline subscribe-form">
+              <div class="input-group input-group-lg">
+                <input id="mce-EMAIL" type="email" name="EMAIL" placeholder="Email address..." class="form-control"><span class="input-group-btn">
+                  <button id="mc-embedded-subscribe" type="submit" name="subscribe" class="btn btn-dark">Subscribe</button></span>
+                <div id="mce-responses"></div>
+                <div id="mce-error-response" style="display:none" class="response"></div>
+                <div id="mce-success-response" style="display:none" class="response"></div>
+              </div>
+            </form>
+            {# <!-- End MailChimp Signup Form--><img src="img/misc/mailchimp.png" alt=""> #}
+          </div>
+        </div>
+      </div>
+    </section>
     
     <!-- Footer Section-->
     <section class="section-small bg-dark footer">
       <div class="container">
+      {# <hr></hr> #}
         <div class="row">
         
           <div class="col-sm-3 col-sm-offset-1 footer-menu">
@@ -265,11 +286,11 @@
     <section class="section-small bg-dark2 footer">
       <div class="container">
         <div class="row">
-          <div class="col-sm-4">
+          <div class="col-sm-5">
             <h8><a href="https://Pangolin.com">2017 &copy Pangolin Laser Systems Inc.</a>
             </h8>
           </div>
-          <div class="col-sm-3 col-sm-offset-1">
+          <div class="col-sm-1 col-sm-offset-1">
               
               {# <img src="http://pangolin.com/wp-content/themes/Pangolin/images/pay_cards.png" alt="Payment methods" /> #}
             
@@ -279,7 +300,7 @@
             {# <h6>We <i class="fa fa-heart fa-fw"></i> creative people #}
             
           </div>
-          <div class="col-sm-3 col-sm-offset-1 text-right">
+          <div class="col-sm-5 col-sm-offset-1 text-right">
             <ul class="list-inline">
               <li><a href="https://www.twitter.com/PangolinSystems"><i class="fa fa-twitter fa-fw fa-lg"></i></a></li>
               <li><a href="https://www.facebook.com/PangolinSystems"><i class="fa fa-facebook fa-fw fa-lg"></i></a></li>
