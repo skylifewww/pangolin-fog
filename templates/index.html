@@ -145,7 +145,7 @@
 
       {% else %}
 
-      <li class="product"><a href="#{{ menu_item.name }}">{{ menu_item.name }}</a></li> 
+      <li class="product"><a href="#{{ menu_item.name }}" class="page-scroll">{{ menu_item.name }}</a></li> 
 
       {% endif %}
 
@@ -163,7 +163,7 @@
 
       {% endfor %}
 
-      <li><a href="#Accessories">Accessories</a></li> 
+      <li><a href="#Accessories" class="page-scroll">Accessories</a></li> 
 
       {# <li class="product"><a href="#0">Compare</a></li>  #}
 
@@ -191,13 +191,14 @@
  {% for category in categories_all %}
   {% if category.published_in_second == 0 %}
 
-      <li><a href="/products/{{category.id}}/">{{ category.name }}</a></li>
+      {# <li><a href="/products/{{category.id}}/">{{ category.name }}</a></li> #}
+      <li><a href="#{{ category.name }}"  class="page-scroll">{{ category.name }}</a></li>
 
       {% endif %}
 
       {% endfor %}
 
-      <li><a href="#Accessories">Accessories</a></li> 
+      <li><a href="#Accessories" class="page-scroll">Accessories</a></li> 
 
     </ul>
   </nav> <!-- .cd-secondary-nav -->

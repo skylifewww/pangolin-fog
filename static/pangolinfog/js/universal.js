@@ -1,9 +1,3 @@
-/****************************************************************************************
- Universal - Smart multi-purpose html5 template
- To use this template you must have a license purchased at Themeforest (themeforest.com)
- Copyright 2016 ForBetterWeb.com
- ***************************************************************************************/
-
 (function($){
     "use strict";
     $(document).ready(function() {
@@ -16,11 +10,6 @@
             jQuery("#status").fadeOut();
             jQuery("#preloader").delay(1000).fadeOut("slow");
         })
-
-        /***********************************************
-         * Universal Parallax
-         * Copyright - ForBetterWeb.com
-         ***********************************************/
 
         var introHeader = $('.intro'),
             intro = $('.intro');
@@ -62,7 +51,8 @@
          * jQuery Parallax
          ***********************************************/
 
-        $('.bg-img').parallax("50%", .12);
+        $('.bg-img2').parallax("50%", .12);
+        $('.bg-img1').parallax("50%", .12);
         $('.bg-img2').parallax("50%", .12);
         $('.bg-img3').parallax("50%", .12);
         $('.bg-img4').parallax("50%", .12);
@@ -176,7 +166,7 @@
          ***********************************************/
 
         $('.carousel-big').carousel({
-            interval: 6500, //changes the speed
+            interval: 9500, //changes the speed
             pause: "false"
         })
 
