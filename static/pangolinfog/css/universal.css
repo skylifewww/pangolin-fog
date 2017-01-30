@@ -1404,7 +1404,7 @@ a.btn-nav .btn {
   background: transparent; }
 
 .intro-body:before {
-  background: rgba(0, 0, 0, 0.4);
+  background: rgba(0, 0, 0, 0.3);
   content: "";
   left: 0;
   top: 0;
