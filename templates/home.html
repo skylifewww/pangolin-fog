@@ -1,0 +1,136 @@
+{% load staticfiles %}
+{% load content_tags %}
+
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="shortcut icon" href="{% static 'pangolinfog/img/favicon.ico' %}">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <title>Pangolin Fog
+    </title>
+    <!-- Bootstrap Core CSS-->
+    <!-- Latest compiled and minified CSS -->
+
+    <link href="{% static 'pangolinfog/css/bootstrap.min.css' %}" rel="stylesheet">
+
+    <!-- Custom CSS-->
+    <link rel="stylesheet" href="{% static 'pangolinfog/auto-hiding-navigation/css/reset.css' %}"> <!-- CSS reset -->
+    <link rel="stylesheet" href="{% static 'pangolinfog/auto-hiding-navigation/css/style.css' %}"> <!-- Resource style -->
+
+    <link rel="stylesheet" href="{% static 'pangolinfog/css/animate.min.css' %}">
+
+    <link href="{% static 'pangolinfog/css/universal.css' %}" rel="stylesheet">
+
+    
+</head>
+  <body id="page-top" data-spy="scroll" data-target=".navbar-fixed-top" class="top">	
+
+
+
+  
+   <!-- Preloader-->
+    <div id="preloader">
+      <div id="status"></div>
+    </div>
+
+       <audio autoplay loop volume="highest">
+    <source src="{% static 'pangolinfog/img/LS.mp3' %}" type="audio/mpeg" media="all|braille|handheld|print|screen|speech|projection|tty|tv">
+    </audio>
+
+
+
+
+<!-- Intro Slider-->
+    <header id="Carousel-intro" data-ride="carousel" class="intro carousel carousel-big slide carousel-fade">
+    
+      <!-- Indicators-->
+      {# <ol class="carousel-indicators"> #}
+        {# <li data-target="#Carousel-intro" data-slide-to="0" class="active"></li> #}
+        {# <li data-target="#Carousel-intro" data-slide-to="1"></li> #}
+        {# <li data-target="#Carousel-intro" data-slide-to="2"></li> #}
+        {# <li data-target="#Carousel-intro" data-slide-to="3"></li> #}
+     {# </ol> #}
+
+       <div class="carousel-inner">
+
+
+  {# {% for slide in slides %} #}
+
+  {# {% if slide.ordering == 1 %} #}
+
+  <div class="item active">
+ 
+          {# <div style="background-image:url({{ slide.slug }})" class="fill"> #}
+           <div style="background-image:url(/static/pangolinfog/img/laser_show21_animated.svg)" class="fill">
+            <div class="intro-body">
+              {# <h2 data-wow-delay=".4s" data-wow-duration="2s" class="wow fadeOutUp">Smoke Machines</h2> #}
+              <a href="/products/products_all/"><h1 class="wow fadeInDown" style="colortext:black">Smoke Factory</h1></a>
+              <a href="/products/products_all/" class="btn btn-border btn-lg page-scroll wow fadeInLeft"><i class="fa fa-chevron-down"></i> Smoke Machines</a>
+              {# <h1 class="wow fadeInDown">Smoke Machines</h1> #}
+             {# <div data-wow-delay="1s" class="scroll-btn hidden-xs wow fadeInDown"><a href="#about" class="page-scroll"><span class="mouse"><span class="weel"><span></span></span></span></a></div> #}
+            </div>
+           </div>
+          </div>
+
+
+        
+
+
+         </div>
+
+      {# <!-- Controls--><a href="#Carousel-intro" data-slide="prev" class="left carousel-control"><span class="icon-prev"></span></a><a href="#Carousel-intro" data-slide="next" class="right carousel-control"><span class="icon-next"></span></a> #}
+     
+    </header>
+    <!-- Slider-->
+
+
+
+    
+
+   
+
+    <!-- jQuery-->
+
+    <script src="{% static 'pangolinfog/js/jquery-1.12.4.min.js' %}"></script>
+    <!-- Bootstrap Core JavaScript-->
+    <script src="{% static 'pangolinfog/js/bootstrap.min.js' %}"></script>
+    <!-- Plugin JavaScript-->
+    <script src="{% static 'pangolinfog/js/jquery.easing.min.js' %}"></script>
+    <script src="{% static 'pangolinfog/js/jquery.countdown.min.js' %}"></script>
+
+    <script src="{% static 'pangolinfog/js/device.min.js' %}"></script>
+    <script src="{% static 'pangolinfog/js/form.min.js' %}"></script>
+    <script src="{% static 'pangolinfog/js/jquery.placeholder.min.js' %}"></script>
+    <script src="{% static 'pangolinfog/js/jquery.shuffle.min.js' %}"></script>
+    <script src="{% static 'pangolinfog/js/jquery.parallax.min.js' %}"></script>
+    <script src="{% static 'pangolinfog/js/jquery.circle-progress.min.js' %}"></script>
+    <script src="{% static 'pangolinfog/js/jquery.swipebox.min.js' %}"></script>
+    <script src="{% static 'pangolinfog/js/smoothscroll.min.js' %}"></script>
+    <script src="{% static 'pangolinfog/js/wow.min.js' %}"></script>
+    <script src="{% static 'pangolinfog/js/jquery.smartmenus.js' %}"></script>
+
+<script src="{% static 'pangolinfog/auto-hiding-navigation/js/main.js' %}"></script> <!-- Resource jQuery -->
+
+
+  
+        <!-- Google Maps API Key - Use your own API key to enable the map feature. More information on the Google Maps API can be found at https://developers.google.com/maps/-->
+        <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyB3E86i8mx1BZDlAaLcknh_mWl4F70i4os"></script>
+        <script src="{% static 'pangolinfog/js/map.js' %}"></script>
+    <!-- Custom Theme JavaScript-->
+
+      {# // <script src="{% static 'pangolinfog/js/smoke.js' %}"</script> #}
+     <script src="{% static 'pangolinfog/js/universal.js' %}"></script>
+    
+<!--[if lt IE 9]>
+    <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+    <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+    
+  </body>
+</html>
+  

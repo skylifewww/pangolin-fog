@@ -57,7 +57,7 @@ def main(request):
 	args['categories_main_menu'] = categories_main_menu
 	args['slides'] = slides
 
-	return render_to_response("main.html", args)
+	return render_to_response("home.html", args)
 
 
     

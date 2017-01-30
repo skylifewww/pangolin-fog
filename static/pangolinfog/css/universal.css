@@ -73,6 +73,7 @@ body {
 /*.container {width: 1200px;}*/
 
 /* Preloader */
+
 #preloader {
   top: 0;
   left: 0;
@@ -142,6 +143,8 @@ body {
   to {
     -moz-transform: scale(1);
     opacity: 0.5; } }
+
+
 h1, h2, h3, h4, h5, h6 {
   margin: 0 0 10px;
   text-transform: uppercase;
@@ -388,7 +391,7 @@ h4, h5, h6 {
   height: 250px;
   
   background:url('../img/smoke-texture.png') no-repeat;
-  opacity: 0.6;
+  /*opacity: 0.8;*/
   
   bottom: 200px; 
   margin-left: 48%;
@@ -416,7 +419,7 @@ h4, h5, h6 {
   height: 250px;
  
   background:url('../img/smoke-texture.png') no-repeat;
-  opacity: 0.6;
+  /*opacity: 0.8;*/
   bottom: 120px; 
   margin-left:2px;
   z-index: 100;
@@ -429,7 +432,7 @@ h4, h5, h6 {
   height: 250px;
  
   background:url('../img/smoke-texture.png') no-repeat;
-  opacity: 0.6;
+  /*opacity: 0.8;*/
   bottom: 140px; 
   margin-left:40%;
   z-index: 100;
@@ -1401,7 +1404,7 @@ a.btn-nav .btn {
   background: transparent; }
 
 .intro-body:before {
-  /*background: rgba(0, 0, 0, 0.6);*/
+  background: rgba(0, 0, 0, 0.4);
   content: "";
   left: 0;
   top: 0;

@@ -8,7 +8,7 @@
 
         jQuery(window).load(function () {
             jQuery("#status").fadeOut();
-            jQuery("#preloader").delay(600).fadeOut("slow");
+            jQuery("#preloader").delay(350).fadeOut("slow");
         })
 
         var introHeader = $('.intro'),
