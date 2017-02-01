@@ -9,9 +9,10 @@ def rel(*x):
 
 DEBUG = False
 DOMAIN = 'localhost:8000'
+SFDOMAIN = '136.144.130.186' 
 
 APPEND_SLASH = True
-ALLOWED_HOSTS = ["pangolinsmoke.herokuapp.com", DOMAIN]
+ALLOWED_HOSTS = ["pangolinsmoke.herokuapp.com", "smokefactory.us", "smoke-factory.us", "hazemachines.us", DOMAIN, SFDOMAIN]
 
 USE_X_FORWARDED_HOST = True
 SECURE_PROXY_SSL_HEADER = ('HTTP_X_FORWARDED_PROTOCOL', 'https')

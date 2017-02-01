@@ -18,6 +18,12 @@ from product.models import Product
 from content.models import Slide
 
 
+
+def jq_subsc(request):
+   
+    return render(request, 'jq_subsc.html')
+
+
 def download_file(request):
     _file = 'manualtourhazer2.pdf.zip'
     filename = os.path.basename(_file)

@@ -9,6 +9,7 @@ from mptt.models import MPTTModel, TreeForeignKey
 import datetime
 import mptt
 from mptt.fields import TreeForeignKey
+from easy_thumbnails.fields import ThumbnailerImageField
 
 
 
@@ -75,7 +76,7 @@ class Meta(models.Model):
     meta_keywords = models.CharField(max_length=250, blank=True, verbose_name="Meta keywords")
     meta_title = models.CharField(max_length=250, blank=True, verbose_name="Meta Title")
     meta_author = models.CharField(max_length=250, blank=True, verbose_name="Meta Author")
-    # favicon = models.ImageField(upload_to=make_upload_path, blank=True,  verbose_name="favicon.ico")
+    favicon = models.ImageField(upload_to=make_upload_path, blank=True,  verbose_name="favicon.ico")
     favicon_slug = models.CharField(max_length=250, blank=True, verbose_name="URL favicon")
     published = models.BooleanField(verbose_name="Published", blank=True, default=0)
 
@@ -86,20 +87,20 @@ class Meta(models.Model):
         verbose_name_plural = "Meta descriptions"
         verbose_name = "Meta description"
 
-    # def pic(self):
-    #     if self.favicon:
-    #         return u'<img src="%s" width="70"/>' % self.favicon.url
-    #     else:
-    #         return '(none)'
-    # pic.short_description = u'Большая картинка'
-    # pic.allow_tags = True  
+    def pic(self):
+        if self.favicon:
+            return u'<img src="%s" width="70"/>' % self.favicon.url
+        else:
+            return '(none)'
+    pic.short_description = 'favicon'
+    pic.allow_tags = True  
 
     def pic_slug(self):
         if self.favicon_slug:
             return u'<img src="%s" width="70"/>' % self.favicon_slug
         else:
             return '(none)'
-    pic_slug.short_description = 'favicon'
+    pic_slug.short_description = 'favicon slug'
     pic_slug.allow_tags = True       
         
 
@@ -153,7 +154,8 @@ class Meta(models.Model):
 class Slide(models.Model):
     category = models.ForeignKey(Category, related_name="slides", verbose_name="Category", default="", blank=True, null=True)
     name = models.CharField(max_length=250, verbose_name="Name")
-    # image = models.ImageField(upload_to=make_upload_path, blank=True,  verbose_name="Изображение")
+    image = ThumbnailerImageField(upload_to=make_upload_path, blank=True, verbose_name="Image")
+    isHorizont = models.BooleanField(verbose_name="isHorizont", default="", blank=True)
     slug = models.CharField(max_length=250, blank=True, verbose_name="Url pic")
     text1 = RichTextUploadingField(blank=True, verbose_name="Text1")
     text2 = RichTextUploadingField(blank=True, verbose_name="Text2")
@@ -169,20 +171,20 @@ class Slide(models.Model):
     def __str__(self):
         return self.name
 
-    # def pic(self):
-    #     if self.image:
-    #         return u'<img src="%s" width="70"/>' % self.image.url
-    #     else:
-    #         return '(none)'
-    # pic.short_description = u'Большая картинка'
-    # pic.allow_tags = True
+    def pic(self):
+        if self.image:
+            return u'<img src="%s" width="70"/>' % self.image.url
+        else:
+            return '(none)'
+    pic.short_description = 'Slide'
+    pic.allow_tags = True
 
     def pic_slug(self):
         if self.slug:
             return u'<img src="%s" width="70"/>' % self.slug
         else:
             return '(none)'
-    pic_slug.short_description = 'Slide'
+    pic_slug.short_description = 'Slide slug'
     pic_slug.allow_tags = True   
 
     class Meta:

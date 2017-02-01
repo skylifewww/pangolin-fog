@@ -128,96 +128,96 @@ def product(request, category_id, product_id):
 
     args = {}
     current_category = Category.objects.get(id=category_id)
-    accessories = Accessory.objects.filter(category=current_category.id)
+    
     categories = Category.objects.filter(children__in=current_category.get_descendants(include_self=True))
     categories_second_menu = Category.objects.filter(published_in_second=1).order_by('ordering')
     current_product = Product.objects.get(id=product_id)
     related_products = Product.objects.filter(related_products=1)
-    overviews = Overview.objects.filter(category_id=current_category.id)
-    slides = SlideProduct.objects.filter(category_id=current_category.id)
-    specs = TechSpec.objects.filter(product_id=current_product.id)
+    
+    
+    
     products = Product.objects.filter(product_category__in=current_category.get_descendants(include_self=True))
     menu_items = MenuItemProduct.objects.filter(category__in=categories.get_descendants(include_self=True))
     args['categories'] = categories
-    args['accessories'] = accessories
+    
     args['categories_second_menu'] = categories_second_menu
     args['menu_items'] = menu_items
     args['current_category'] = current_category
     args['products'] = products
     args['related_products'] = related_products
-    args['slides'] = slides
-    args['overviews'] = overviews
-    args['specs'] = specs
+    
+    
+    
     args['current_product'] = current_product
     args['menu'] = "products"
 
     return render_to_response("product.html", args)
 
 
-def smokemachines(request):
+# def smokemachines(request):
 
-    category_id=5
-    # heroku
-
-
-    # category_id=1 
-    # localdb
+#     category_id=5
+#     # heroku
 
 
-    args = {}
-    current_category = Category.objects.get(id=category_id)
-    categories = Category.objects.filter(children__in=current_category.get_descendants(include_self=True))
-    categories_second_menu = Category.objects.filter(published_in_second=1).order_by('ordering')
-    args['categories'] = categories
-    args['categories_second_menu'] = categories_second_menu
+#     # category_id=1 
+#     # localdb
+
+
+#     args = {}
+#     current_category = Category.objects.get(id=category_id)
+#     categories = Category.objects.filter(children__in=current_category.get_descendants(include_self=True))
+#     categories_second_menu = Category.objects.filter(published_in_second=1).order_by('ordering')
+#     args['categories'] = categories
+#     args['categories_second_menu'] = categories_second_menu
     
-    products = Product.objects.filter(product_category__in=current_category.get_descendants(include_self=True))
-    args['current_category'] = current_category
-    args['products'] = products
-    args['menu'] = "products"
+#     products = Product.objects.filter(product_category__in=current_category.get_descendants(include_self=True))
+#     args['current_category'] = current_category
+#     args['products'] = products
+#     args['menu'] = "products"
 
-    return render_to_response("products.html", args)
-
-
-def fluids(request):
-
-    category_id=1
-    # heroku
+#     return render_to_response("products.html", args)
 
 
-    # category_id=2 
-    # localdb
+# def fluids(request):
 
-    args = {}
-    current_category = Category.objects.get(id=category_id)
-    categories = Category.objects.filter(children__in=current_category.get_descendants(include_self=True))
-    categories_second_menu = Category.objects.filter(published_in_second=1).order_by('ordering')
-    args['categories'] = categories
-    args['categories_second_menu'] = categories_second_menu
+#     category_id=1
+#     # heroku
+
+
+#     # category_id=2 
+#     # localdb
+
+#     args = {}
+#     current_category = Category.objects.get(id=category_id)
+#     categories = Category.objects.filter(children__in=current_category.get_descendants(include_self=True))
+#     categories_second_menu = Category.objects.filter(published_in_second=1).order_by('ordering')
+#     args['categories'] = categories
+#     args['categories_second_menu'] = categories_second_menu
     
-    products = Product.objects.filter(product_category__in=current_category.get_descendants(include_self=True))
-    args['current_category'] = current_category
-    args['products'] = products
-    args['menu'] = "products"
+#     products = Product.objects.filter(product_category__in=current_category.get_descendants(include_self=True))
+#     args['current_category'] = current_category
+#     args['products'] = products
+#     args['menu'] = "products"
 
-    return render_to_response("fluids.html", args)    
+#     return render_to_response("fluids.html", args)    
 
 
-def fluids_line(request, category_id=1):
+# def fluids_line(request, category_id=1):
 
-    args = {}
-    current_category = Category.objects.get(id=category_id)
-    categories = Category.objects.filter(children__in=current_category.get_descendants(include_self=True))
-    categories_second_menu = Category.objects.filter(published_in_second=1).order_by('ordering')
-    args['categories'] = categories
-    args['categories_second_menu'] = categories_second_menu
+#     args = {}
+#     current_category = Category.objects.get(id=category_id)
+#     categories = Category.objects.filter(children__in=current_category.get_descendants(include_self=True))
+#     categories_second_menu = Category.objects.filter(published_in_second=1).order_by('ordering')
+#     args['categories'] = categories
+#     args['categories_second_menu'] = categories_second_menu
     
-    products = Product.objects.filter(product_category__in=current_category.get_descendants(include_self=True))
-    args['current_category'] = current_category
-    args['products'] = products
-    args['menu'] = "products"
+#     products = Product.objects.filter(product_category__in=current_category.get_descendants(include_self=True))
+#     args['current_category'] = current_category
+#     args['products'] = products
+#     args['menu'] = "products"
 
-    return render_to_response("fluids.html", args)      
+#     return render_to_response("fluids.html", args)      
 
 
 def supports(request):

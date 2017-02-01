@@ -103,7 +103,7 @@
       </div>
         <div class="row">
 
-        {% for overview in overviews %}
+        {% for overview in current_product.get_overviews  %}
           <div data-wow-delay=".2s" class="col-lg-3 col-sm-6 wow fadeIn">
             <h4><i class="icon-big {{ overview.icon }}"></i> {{ overview.name }}</h4>
             <p>{{ overview.text|safe }}</p>
@@ -116,12 +116,12 @@
 
 
 
-{% if current_category.name == "Captain D" %}
-    <div class="small-header bg-img1">
-{% else %}
+{# {% if current_category.name == "Captain D" %} #}
+    <div class="small-header bg-img" style="background-image:url({{ current_product.get_bg_slide.slug }})">
+{# {% else %} #}
 
-    <div class="small-header bg-img5">
-    {% endif %}
+    {# <div class="small-header bg-img5"> #}
+    {# {% endif %} #}
       <div class="container">
         <div class="row">
           <div class="col-md-6">
@@ -150,7 +150,7 @@
         
 
 
- {% for spec in specs %}    
+ {% for spec in current_product.get_techSpecs %}    
 
  {# <hr></hr> #}
 
@@ -186,7 +186,7 @@
 
         <div id="grid" class="row portfolio-items">
 
-        {% for slide in slides %}
+        {% for slide in current_product.get_slides %}
            <div data-groups="[&quot;{{ slide.category.name }}&quot;]" class="col-sm-4 no-pad">
             <div class="portfolio-item"><a href="{{ slide.slug }}" title="{{ slide.name }}" class="swipebox"><img src="{{ slide.slug }}" alt="">
                 <div class="portfolio-overlay">
@@ -306,7 +306,7 @@
 
 
     
- {% for accessory in accessories %}    
+ {% for accessory in current_product.get_accessories %}    
 
    
      

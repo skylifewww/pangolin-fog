@@ -1300,8 +1300,8 @@ a.btn-nav .btn {
   padding-bottom: 0px; }
 
 .small-header.bg-dark:before, .small-header.bg-transparent:before, .small-header.bg-img:before, .small-header.bg-img2:before, .small-header.bg-img3:before, .small-header.bg-img4:before, .small-header.bg-img5:before {
-  /*background: rgba(7, 9, 21, 0.5);*/
-  background: #111417;
+  background: rgba(7, 9, 21, 0.3);
+ /*background: #111417;*/
   content: " ";
   left: 0;
   top: 0;
@@ -1329,9 +1329,9 @@ a.btn-nav .btn {
 .bg-img1 {
   background: url(../img/CD_P_5.png); }  
 
-.bg-img1, .bg-img2, .bg-img3, .bg-img4, .bg-img5 {
+.bg-img, .bg-img1, .bg-img2, .bg-img3, .bg-img4, .bg-img5 {
   background-attachment: fixed;
-  /*background-repeat: no-repeat;*/
+  background-repeat: no-repeat;
   background-position: 50% 50%;
   -webkit-background-size: cover;
   -moz-background-size: cover;

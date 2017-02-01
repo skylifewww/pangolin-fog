@@ -9,6 +9,7 @@ urlpatterns = [
     
     url(r'^grappelli/', include('grappelli.urls')),
     url(r'^adminpangolin/', include(admin.site.urls)),
+    url(r'jq_subsc/$', jq_subsc),
     url(r'^$', main),
     url(r'products/', include('product.urls')),
     url(r'support/', include('product.urls')),

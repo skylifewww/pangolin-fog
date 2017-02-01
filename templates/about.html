@@ -10,6 +10,8 @@
 
 {% about %}
 
+
+
     <!-- Portfolio-->
     <section id="portfolio" class="portfolio-wide_dark bg-dark">
       <div class="container text-center">
@@ -31,7 +33,13 @@
 
         {% for slide in slides %}
            <div data-groups="[&quot;{{ slide.category.name }}&quot;]" class="col-sm-4">
-            <div class="portfolio-item"><a href="{{ slide.slug }}" title="{{ slide.name }}" class="swipebox"><img src="{{ slide.slug }}" alt="">
+           {% if slide.isHorizont == 1 %}
+            <div class="portfolio-item"><a href="{% thumbnail slide.image  1000x667 %}" title="{{ slide.name }}" class="swipebox"><img src="{% thumbnail slide.image  1000x667 crop %}" alt="{{ slide.name }}">
+            {% else %}
+
+            <div class="portfolio-item"><a href="{% thumbnail slide.image  600x833 %}" title="{{ slide.name }}" class="swipebox"><img src="{% thumbnail slide.image  600x833 crop %}" alt="{{ slide.name }}">
+            {% endif %}
+            
                 <div class="portfolio-overlay">
                   <div class="caption">
                     <h5>{{ slide.name }}</h5><span>{{ slide.text1|safe }}</span>
@@ -43,6 +51,8 @@
         </div>
       </div>
     </section>
+
+
 
 
 <!-- Subscribe Section-->
