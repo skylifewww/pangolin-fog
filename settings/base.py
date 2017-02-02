@@ -25,6 +25,14 @@ MESSAGE_STORAGE = 'django.contrib.messages.storage.session.SessionStorage'
 
 SECRET_KEY = '=q02ytwt#x3mlha%(fh59-3(t_1%9r=*+(yua+%!_57+gd2t*4'
 
+ # reCAPTCHA keys  
+# RECAPTCHA_PUBLIC_KEY = '6Lc-6RMUAAAAAK6fpqzOzOX3rBOMi0WnxV4rB3kJ' 
+# RECAPTCHA_PRIVATE_KEY = '6Lc-6RMUAAAAAE82SzOKopia8mBP8trknVlI_T0s'
+
+ # reCAPTCHA keys  
+RECAPTCHA_PUBLIC_KEY = '6Lc-6LccKSgTAAAAADovCKWjMyGhPKeT_Nfc-rckYWNt' 
+RECAPTCHA_PRIVATE_KEY = '6Lc-6LccKSgTAAAAAKsvL4_ARxRQfZtLz_uJ1ASIpKdD'
+
 ROOT_URLCONF = 'pangolinfog.urls'
 
 WSGI_APPLICATION = 'wsgi.application'

@@ -1327,7 +1327,7 @@ a.btn-nav .btn {
   background: url(../img/laser_173.jpg); }
 
 .bg-img1 {
-  background: url(../img/CD_P_5.png); }  
+  /*background: url(); }  */
 
 .bg-img, .bg-img1, .bg-img2, .bg-img3, .bg-img4, .bg-img5 {
   background-attachment: fixed;
