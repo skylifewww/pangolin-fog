@@ -1,0 +1,11 @@
+Sender Name:
+{{ contact_name }}
+
+Sender Email:
+{{ contact_email }}
+
+Sender Phone:
+{{ contact_phone }}
+
+Message:
+{{ form_content|safe|striptags }}

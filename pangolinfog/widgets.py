@@ -5,6 +5,7 @@ from django.conf import settings
 from recaptcha import captcha  
 
 
+
 class ReCaptcha(forms.widgets.Widget):
 
     recaptcha_challenge_name = 'recaptcha_challenge_field'  

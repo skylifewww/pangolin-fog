@@ -3,10 +3,12 @@ from django.conf.urls import patterns, include, url
 from django.conf.urls.static import static
 from pangolinfog.views import *
 from django.contrib import admin
+from django.views.generic import TemplateView
+from . import views
 admin.autodiscover()
 
 urlpatterns = [
-    
+
     url(r'^grappelli/', include('grappelli.urls')),
     url(r'^adminpangolin/', include(admin.site.urls)),
     url(r'jq_subsc/$', jq_subsc),
@@ -18,6 +20,9 @@ urlpatterns = [
     url(r'contact/$',contact),
     url(r'download/', download_file),
     url(r'download_mp3/', download_mp3),
+    
+    url(r'^success/$', TemplateView.as_view(template_name="success.html"), {},
+        name="success"),
     
 
     url(r'^ckeditor/', include('ckeditor_uploader.urls')),

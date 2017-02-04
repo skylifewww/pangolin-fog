@@ -7,9 +7,20 @@
 
 {% block products_all %}
 
-{# {% about %} #}
+<header style="background-image:url(/static/pangolinfog/img/slide_prod_grey12.png)" class="intro introhalf">
+      <!-- Intro Header-->
+      <div class="intro-body">
+      <div class="container">
+          <div class="row">
+        <h2 data-wow-duration="2s" class="animated zoomIn">We make your laser dreams come true</h2>
+        <h5>2017 &copy Pangolin Laser Systems Inc.</h5>
+      </div>
+      </div>
+      </div>
+   
+     </header>
 
-{% all_prod %}
+{# {% all_prod %} #}
 
 
 
@@ -149,8 +160,8 @@
                 {# </div> #}
 
           
-                <a href="#"><img src="{% thumbnail accessory.image  457x373 crop %}" alt="" class="img-responsive center-block"></a>
-                {# <a href="/products/product/{{accessory.category.id}}/{{accessory.id}}/"><img src="{{ accessory.slug }}" alt="" class="img-responsive center-block"></a> #}
+                {# <a href="#"><img src="{% thumbnail accessory.image  457x373 crop %}" alt="" class="img-responsive center-block"></a> #}
+                <a href="/products/product/{{accessory.category.id}}/{{accessory.id}}/"><img src="{{ accessory.slug }}" alt="" class="img-responsive center-block"></a>
 
                   <div class="device_main_all">
 

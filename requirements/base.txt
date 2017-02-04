@@ -37,3 +37,4 @@ django-mptt
 pathlib
 social-auth-app-django
 social-auth-core
+django-nocaptcha-recaptcha

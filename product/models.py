@@ -341,7 +341,7 @@ class Support(models.Model):
     
 
 class SlideProduct(models.Model):
-    category = models.ForeignKey(Category, related_name="slides", verbose_name="Category", default="", blank=True, null=True)
+    category = models.ForeignKey(Category, related_name="slideproduct", verbose_name="Category", default="", blank=True, null=True)
     name = models.CharField(max_length=250, verbose_name="Name")
     image = models.ImageField(upload_to=make_upload_path, blank=True, verbose_name="Image")
     slug = models.CharField(max_length=250, blank=True, verbose_name="Url pic")

@@ -7,13 +7,23 @@
 
 {% block contact %}
 
-{% about %}
+
+    <header style="background-image:url({{ background_image.slug }})" class="intro introhalf">
+      <!-- Intro Header-->
+      <div class="intro-body">
+      <div class="container">
+          <div class="row">
+        <h2 data-wow-duration="2s" class="animated zoomIn">We make your laser dreams come true</h2>
+        <h5>2017 &copy Pangolin Laser Systems Inc.</h5>
+      </div>
+      </div>
+      </div>
+    </header>
+{# {% about %} #}
 
 
 <!-- Contact Section-->
     <section id="contact" class="bg-dark">
-
-    {# <div class="small-header bg-white"></div> #}
     
       <div class="container">
       <div class="container">
@@ -34,39 +44,55 @@ Orlando, Florida 32837,
             <h5><i class="fa fa-phone fa-fw fa-lg"></i> Fax +1-407-299-6066
             </h5>
           </div>
+
+
+
+
           <div class="col-md-5 col-md-offset-2">
-            <h3>Say hello</h3>
+            <h3>Email Us</h3>
             <!-- Contact Form - Enter your email address on line 17 of the mail/contact_me.php file to make this form work. For more information on how to do this please visit the Docs!-->
-            <form id="contactForm" name="sentMessage" novalidate="">
-              <div class="control-group">
+
+
+            <form  action="/contact/" role="form" method="post" name="sentMessage">
+
+        {% csrf_token %}
+
+
+         <div class="control-group">
                 <div class="form-group floating-label-form-group controls">
                   <label for="name" class="sr-only control-label">You Name</label>
-                  <input id="name" type="text" placeholder="You Name" required="" data-validation-required-message="Please enter name" class="form-control input-lg"><span class="help-block text-danger"></span>
+                  <input name="contact_name"  id="name" type="text" placeholder="You Name" required="required" data-validation-required-message="Please enter name" class="form-control input-lg"><span class="help-block text-danger"></span>
                 </div>
               </div>
               <div class="control-group">
                 <div class="form-group floating-label-form-group controls">
                   <label for="email" class="sr-only control-label">You Email</label>
-                  <input id="email" type="email" placeholder="You Email" required="" data-validation-required-message="Please enter email" class="form-control input-lg"><span class="help-block text-danger"></span>
+                  <input name="contact_email" id="email" type="email" placeholder="You Email" required="required" data-validation-required-message="Please enter email" class="form-control input-lg"><span class="help-block text-danger"></span>
                 </div>
               </div>
               <div class="control-group">
                 <div class="form-group floating-label-form-group controls">
                   <label for="phone" class="sr-only control-label">You Phone</label>
-                  <input id="phone" type="tel" placeholder="You Phone" required="" data-validation-required-message="Please enter phone number" class="form-control input-lg"><span class="help-block text-danger"></span>
+                  <input name="contact_phone" id="phone" type="tel" pattern="^\+?1?\d{1}-\d{3}-\d{3}-\d{4}$" placeholder="+1-222-333-4444" required="required"  class="form-control input-lg"><span  data-validation-required-message="Phone number must be entered in the format: '+9-999-999-9999'"></span>
                 </div>
               </div>
               <div class="control-group">
                 <div class="form-group floating-label-form-group controls">
                   <label for="message" class="sr-only control-label">Message</label>
-                  <textarea id="message" rows="2" placeholder="Message" required="" data-validation-required-message="Please enter a message." aria-invalid="false" class="form-control input-lg"></textarea><span class="help-block text-danger"></span>
+                  <textarea name="content" id="message" rows="2" placeholder="Message" required="required" data-validation-required-message="Please enter a message." aria-invalid="false" class="form-control input-lg"></textarea><span class="help-block text-danger"></span>
                 </div>
               </div>
-              <div id="success"></div>
-              <button type="submit" class="btn btn-dark">Send</button>
-              <div class="g-recaptcha" data-sitekey="6Lc-6RMUAAAAAK6fpqzOzOX3rBOMi0WnxV4rB3kJ"></div>
-              {# <div class="g-recaptcha" data-sitekey="6LccKSgTAAAAADovCKWjMyGhPKeT_Nfc-rckYWNt"></div> #}
-            </form>
+
+              Please fill in this field. We apologize, but we got Robots
+              
+
+            <div name="captcha" required="required" data-validation-required-message="Please enter a message.">{{ form.captcha }}</div>
+       
+  
+              <button type="submit" id="submit" name="submit" class="btn btn-dark">Send</button>
+             
+              
+           </form>
           </div>
         </div>
       </div>
@@ -89,3 +115,7 @@ Orlando, Florida 32837,
    
 
      {% endblock %}
+
+
+
+         

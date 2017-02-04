@@ -19,6 +19,7 @@ INSTALLED_APPS = (
     'embed_video',
     'ckeditor',
     'ckeditor_uploader',
+    'nocaptcha_recaptcha',
 
     
     # apps

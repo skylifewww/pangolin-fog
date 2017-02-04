@@ -9,6 +9,7 @@ CONTEXT_PROCESSORS = (
     'django.core.context_processors.static',
     'django.core.context_processors.tz',
     'django.contrib.messages.context_processors.messages',
+    # 'pangolinfog.context_processors.recaptcha',
 )
 
 TEMPLATES = [

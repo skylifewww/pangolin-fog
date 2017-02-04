@@ -7,8 +7,19 @@
 
 {% block news %}
 
+    <header style="background-image:url({{ background_image.slug }})" class="intro introhalf">
+      <!-- Intro Header-->
+      <div class="intro-body">
+      <div class="container">
+          <div class="row">
+        <h2 data-wow-duration="2s" class="animated zoomIn">We make your laser dreams come true</h2>
+        <h5>2017 &copy Pangolin Laser Systems Inc.</h5>
+      </div>
+      </div>
+      </div>
+    </header>
 
-{% about %}
+{# {% about %} #}
 
 
 
@@ -33,12 +44,14 @@
 
         {% for slide in slides %}
            <div data-groups="[&quot;{{ slide.category.name }}&quot;]" class="col-sm-4">
-           {% if slide.isHorizont == 1 %}
-            <div class="portfolio-item"><a href="{% thumbnail slide.image  1000x667 %}" title="{{ slide.name }}" class="swipebox"><img src="{% thumbnail slide.image  1000x667 crop %}" alt="{{ slide.name }}">
-            {% else %}
+           {# {% if slide.isHorizont == 1 %} #}
+            {# <div class="portfolio-item"><a href="{% thumbnail slide.image  1000x667 %}" title="{{ slide.name }}" class="swipebox"><img src="{% thumbnail slide.image  1000x667 crop %}" alt="{{ slide.name }}"> #}
+            <div class="portfolio-item"><a href="{{slide.slug }}" title="{{ slide.name }}" class="swipebox"><img src="{{ slide.slug }}" alt="{{ slide.name }}">
+            {# {% elif slide.isHorizont == 0 %} #}
 
-            <div class="portfolio-item"><a href="{% thumbnail slide.image  600x833 %}" title="{{ slide.name }}" class="swipebox"><img src="{% thumbnail slide.image  600x833 crop %}" alt="{{ slide.name }}">
-            {% endif %}
+            {# <div class="portfolio-item"><a href="{% thumbnail slide.image  600x833 %}" title="{{ slide.name }}" class="swipebox"><img src="{% thumbnail slide.image  600x833 crop %}" alt="{{ slide.name }}"> #}
+             {# <div class="portfolio-item"><a href="{% thumbnail slide.slug  600x833 %}" title="{{ slide.name }}" class="swipebox"><img src="{% thumbnail slide.slug  600x833 crop %}" alt="{{ slide.name }}"> #}
+            {# {% endif %} #}
             
                 <div class="portfolio-overlay">
                   <div class="caption">

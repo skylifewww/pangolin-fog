@@ -1,26 +1,29 @@
 # -*- coding: utf-8 -*-  
 from django.conf import settings  
 from django import forms  
-from django.utils.encoding import smart_unicode 
+from django.utils.encoding import smart_text
 from django.utils.translation import ugettext_lazy as _  
-from recaptcha.widgets import ReCaptcha  
-from recaptcha import captcha  
+from django.db import models
+from django.core.urlresolvers import reverse_lazy
+from django.views.generic import FormView
 
-class ReCaptchaField(forms.CharField):  
-    default_error_messages = { 
+from nocaptcha_recaptcha.fields import NoReCaptchaField
 
-    'captcha_invalid': _(u'Invalid captcha')  
-    }  
 
-    def __init__(self, *args, **kwargs):  
-        self.widget = ReCaptcha  
-        self.required = True  
-        super(ReCaptchaField, self).__init__(*args, **kwargs)  
-        super(ReCaptchaField, self).clean(values[1])  
-        recaptcha_challenge_value = smart_unicode(values[0])  
-        recaptcha_response_value = smart_unicode(values[1])  
-        check_captcha = captcha.submit(recaptcha_challenge_value,   
-        recaptcha_response_value, settings.RECAPTCHA_PRIVATE_KEY, {})  
-        if not check_captcha.is_valid:  
-        raise forms.util.ValidationError(self.error_messages['captcha_invalid'])  
-        return values[0] 
+class ContactForm(forms.Form):
+    contact_name = forms.CharField(required=True)
+    contact_email = forms.EmailField(required=True)
+    contact_phone = forms.CharField(required=False)
+    content = forms.CharField(
+        required=True,
+        widget=forms.Textarea
+    )
+    captcha = NoReCaptchaField(gtag_attrs={'data-theme': 'dark'})
+
+    def __init__(self, *args, **kwargs):
+        super(ContactForm, self).__init__(*args, **kwargs)
+        self.fields['contact_name'].label = "You Name"
+        self.fields['contact_email'].label = "You Email"
+        self.fields['contact_phone'].label = "You Phone"
+        self.fields['content'].label = "Message"
+
