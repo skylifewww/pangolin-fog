@@ -13,14 +13,14 @@
       <div class="intro-body">
       <div class="container">
           <div class="row">
-        <h2 data-wow-duration="2s" class="animated zoomIn">We make your laser dreams come true</h2>
+        <h2 data-wow-duration="2s" class="animated zoomIn">Realize your laser dreams with us</h2>
+
         <h5>2017 &copy Pangolin Laser Systems Inc.</h5>
       </div>
       </div>
       </div>
     </header>
 {# {% about %} #}
-
 
 <!-- Contact Section-->
     <section id="contact" class="bg-dark">
@@ -30,7 +30,8 @@
         <div class="row_products">
           <div class="col-md-5">
             <h3>contact us</h3>
-            <p>Feel free to contact us. A business has to be involving, it has to be fun, and it has to exercise your creative instincts. Start where you are. Use what you have. Do what you can.</p>
+            <p></p>
+            <p>Feel free to contact us. A business has to be involving, it has to be fun, and it has to exercise your creative laser instincts. Start where you are. Use what you have. Do what you can.</p>
             <hr>US Headquarters
 Pangolin Laser Systems, Inc.
 9501 Satellite Boulevard, Suite 109
@@ -57,40 +58,55 @@ Orlando, Florida 32837,
 
         {% csrf_token %}
 
-
-         <div class="control-group">
-                <div class="form-group floating-label-form-group controls">
-                  <label for="name" class="sr-only control-label">You Name</label>
-                  <input name="contact_name"  id="name" type="text" placeholder="You Name" required="required" data-validation-required-message="Please enter name" class="form-control input-lg"><span class="help-block text-danger"></span>
-                </div>
-              </div>
-              <div class="control-group">
-                <div class="form-group floating-label-form-group controls">
-                  <label for="email" class="sr-only control-label">You Email</label>
-                  <input name="contact_email" id="email" type="email" placeholder="You Email" required="required" data-validation-required-message="Please enter email" class="form-control input-lg"><span class="help-block text-danger"></span>
-                </div>
-              </div>
-              <div class="control-group">
-                <div class="form-group floating-label-form-group controls">
-                  <label for="phone" class="sr-only control-label">You Phone</label>
-                  <input name="contact_phone" id="phone" type="tel" pattern="^\+?1?\d{1}-\d{3}-\d{3}-\d{4}$" placeholder="+1-222-333-4444" required="required"  class="form-control input-lg"><span  data-validation-required-message="Phone number must be entered in the format: '+9-999-999-9999'"></span>
-                </div>
-              </div>
-              <div class="control-group">
-                <div class="form-group floating-label-form-group controls">
-                  <label for="message" class="sr-only control-label">Message</label>
-                  <textarea name="content" id="message" rows="2" placeholder="Message" required="required" data-validation-required-message="Please enter a message." aria-invalid="false" class="form-control input-lg"></textarea><span class="help-block text-danger"></span>
-                </div>
-              </div>
+        <section class="main_contact" class="content bg-dark">
+        
+        <span class="input input--kozakura">
+          <input name="contact_name"  id="name" class="input__field input__field--kozakura" type="text" required="required" data-validation-required-message="Please enter name" class="form-control input-lg" />
+          <label class="input__label input__label--kozakura" for="name">
+            <span class="input__label-content input__label-content--kozakura" data-content="Your Name">Your Name</span>
+          </label>
+          <svg class="graphic graphic--kozakura" width="300%" height="100%" viewBox="0 0 1200 60" preserveAspectRatio="none">
+            <path d="M1200,9c0,0-305.005,0-401.001,0C733,9,675.327,4.969,598,4.969C514.994,4.969,449.336,9,400.333,9C299.666,9,0,9,0,9v43c0,0,299.666,0,400.333,0c49.002,0,114.66,3.484,197.667,3.484c77.327,0,135-3.484,200.999-3.484C894.995,52,1200,52,1200,52V9z"/>
+          </svg>
+        </span>
+        <span class="input input--kozakura">
+          <input name="contact_email" id="email" type="email" class="input__field input__field--kozakura" type="text" required="required" data-validation-required-message="Please enter email" class="form-control input-lg" />
+          <label class="input__label input__label--kozakura" for="email">
+            <span class="input__label-content input__label-content--kozakura" data-content="Your Email">Your Email</span>
+          </label>
+          <svg class="graphic graphic--kozakura" width="300%" height="100%" viewBox="0 0 1200 60" preserveAspectRatio="none">
+            <path d="M1200,9c0,0-305.005,0-401.001,0C733,9,675.327,4.969,598,4.969C514.994,4.969,449.336,9,400.333,9C299.666,9,0,9,0,9v43c0,0,299.666,0,400.333,0c49.002,0,114.66,3.484,197.667,3.484c77.327,0,135-3.484,200.999-3.484C894.995,52,1200,52,1200,52V9z"/>
+          </svg>
+        </span>
+        <span class="input input--kozakura">
+          <input name="contact_phone" id="phone" type="tel" pattern="^\+?1?\d{1}-\d{3}-\d{3}-\d{4}$" class="input__field input__field--kozakura" type="text" required="required" data-validation-required-message="Please enter email" class="form-control input-lg" />
+          <label class="input__label input__label--kozakura" for="phone">
+            <span class="input__label-content input__label-content--kozakura" data-content="+1-222-333-4444">+1-222-333-4444</span>
+          </label>
+          <svg class="graphic graphic--kozakura" width="300%" height="100%" viewBox="0 0 1200 60" preserveAspectRatio="none">
+            <path d="M1200,9c0,0-305.005,0-401.001,0C733,9,675.327,4.969,598,4.969C514.994,4.969,449.336,9,400.333,9C299.666,9,0,9,0,9v43c0,0,299.666,0,400.333,0c49.002,0,114.66,3.484,197.667,3.484c77.327,0,135-3.484,200.999-3.484C894.995,52,1200,52,1200,52V9z"/>
+          </svg>
+        </span>
+        <span class="input input--kozakura">
+          <input name="content" id="message" rows="2" class="input__field input__field--kozakura" type="text" required="required" data-validation-required-message="Please enter a message." aria-invalid="false" class="form-control input-lg" />
+          <label class="input__label input__label--kozakura" for="message">
+            <span class="input__label-content input__label-content--kozakura" data-content="Message">Message</span>
+          </label>
+          <svg class="graphic graphic--kozakura" width="300%" height="100%" viewBox="0 0 1200 60" preserveAspectRatio="none">
+            <path d="M1200,9c0,0-305.005,0-401.001,0C733,9,675.327,4.969,598,4.969C514.994,4.969,449.336,9,400.333,9C299.666,9,0,9,0,9v43c0,0,299.666,0,400.333,0c49.002,0,114.66,3.484,197.667,3.484c77.327,0,135-3.484,200.999-3.484C894.995,52,1200,52,1200,52V9z"/>
+          </svg>
+        </span>
+        </section>
+     
 
               Please fill in this field. We apologize, but we got Robots
               
 
-            <div name="captcha" required="required" data-validation-required-message="Please enter a message.">{{ form.captcha }}</div>
+            <div name="captcha" required="required">{{ form.captcha }}</div>
        
   
               <button type="submit" id="submit" name="submit" class="btn btn-dark">Send</button>
-             
+              
               
            </form>
           </div>
@@ -115,7 +131,5 @@ Orlando, Florida 32837,
    
 
      {% endblock %}
-
-
 
          
