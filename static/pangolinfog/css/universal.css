@@ -639,6 +639,22 @@ section, .main_contact {
   background-color: #111417;}  
 
 
+section, .portfolio {
+  position: relative;
+  z-index: 992;
+  padding-top: 50px;
+  padding-bottom: 20px;
+  background-color: #111417; }
+
+section, .portfolio_product {
+  position: relative;
+  z-index: 992;
+  padding-top: 50px;
+  padding-bottom: 20px;
+  background-color: #fff; }  
+
+
+
 
   .products_all {
   position: relative;
@@ -756,11 +772,16 @@ section, .main_contact {
   color: #000 !important; }
 
 .btn-dark {
+  border: 2px solid #18191B;
+  background-color: #18191B;
+  color: #fff !important; }
+
+.btn-dark_contact {
   margin-top: 10px;
   margin-bottom: 10px;
   border: 2px solid #18191B;
   background-color: #18191B;
-  color: #fff !important; }
+  color: #fff !important; }  
 
 .btn-universal {
   border: 2px solid #789;
