@@ -7,7 +7,7 @@
 
 {% block products_all %}
 
-<header style="background-image:url(/static/pangolinfog/img/slide_prod_grey12.png)" class="intro introhalf">
+<header style="background-image:url(/static/pangolinfog/img/slide_prod_grey12.png)" class="intro intro75">
       <!-- Intro Header-->
       <div class="intro-body">
       <div class="container">
@@ -38,6 +38,14 @@
 
         </div>
 <div class="clearfix"></div>
+ <div class="row_products">
+
+        </div>
+<div class="clearfix"></div>
+<div class="row_products">
+
+        </div>
+<div class="clearfix"></div>
 
 
        <div class="row">
@@ -53,6 +61,14 @@
    {% if  category.ordering != 1 %}
 
    <hr></hr>
+    <div class="row_products">
+
+        </div>
+<div class="clearfix"></div>
+  <div class="row_products">
+
+        </div>
+<div class="clearfix"></div>
 
      {% endif %}
 
@@ -76,6 +92,7 @@
      
           <div class="col-sm-4 col-md-3">
 
+
   
           
 
@@ -85,8 +102,8 @@
 
                 {# </div> #}
 
-          
-                <a href="/products/product/{{product.product_category.id}}/{{product.id}}/"><img src="{{ product.slug }}" alt="" class="img-responsive center-block"></a>
+                 <a href="/products/product/{{product.product_category.id}}/{{product.id}}/"><img src="{{ product.slug_small }}" alt="" class="img-responsive center-block"></a>
+                 {# <a href="/products/product/{{product.product_category.id}}/{{product.id}}/"><img src="{% thumbnail product.product_image  457x373 crop %}" alt="" class="img-responsive center-block"></a> #}
 
                   <div class="device_main_all">
 
@@ -99,7 +116,8 @@
 
                  <div class="device_bottom_all">
 
-                <h3>${{ product.product_price }}</span></span>&nbsp;&nbsp;&nbsp;&nbsp;<a href="/products/product/{{product.product_category.id}}/{{product.id}}/">Learning more</a></h3>
+                <h3><a href="/products/product/{{product.product_category.id}}/{{product.id}}/">Learning more</a></h3>
+                {# <h3>${{ product.product_price }}</span></span>&nbsp;&nbsp;&nbsp;&nbsp;<a href="/products/product/{{product.product_category.id}}/{{product.id}}/">Learning more</a></h3> #}
 
                 </div>
 
@@ -175,7 +193,8 @@
                  <div class="device_bottom_all">
 
                 {# <h3>${{ accessory.price }}</span></span>&nbsp;&nbsp;&nbsp;&nbsp;<a href="/products/product/{{accessory.category.id}}/{{accessory.id}}/">Learning more</a></h3> #}
-                <h3>${{ accessory.price }}</span></span>&nbsp;&nbsp;&nbsp;&nbsp;<a href="#">Learning more</a></h3>
+                <h3><a href="#">Learning more</a></h3>
+                {# <h3>${{ accessory.price }}</span></span>&nbsp;&nbsp;&nbsp;&nbsp;<a href="#">Learning more</a></h3> #}
 
                 </div>
 

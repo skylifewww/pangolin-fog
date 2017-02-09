@@ -7,7 +7,6 @@ from django.contrib.staticfiles.urls import staticfiles_urlpatterns
 
 urlpatterns = [
 
-
     url(r'^product/(?P<category_id>\d+)/(?P<product_id>\d+)/$', product.views.product),
     
     url(r'^products_all/$', product.views.products_all),

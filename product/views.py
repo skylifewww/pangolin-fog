@@ -97,24 +97,6 @@ def products(request, category_id=1):
 
     return render_to_response("products.html", args)
 
-# def products(request, category_id=1):
-
-#     args = {}
-#     current_category = Category.objects.get(id=category_id)
-#     args["categories_all"] = Category.objects.filter(children__in=current_category.get_descendants(include_self=True))
-#     categories_second_menu = Category.objects.filter(published_in_second=1).order_by('ordering')
-#     accessories = Accessory.objects.filter(category=current_category.id)
-#     # args['categories'] = categories
-#     args['categories_second_menu'] = categories_second_menu
-    
-#     products = Product.objects.filter(product_category__in=current_category.get_descendants(include_self=True))
-#     args['current_category'] = current_category
-#     args['products'] = products
-#     args['menu'] = "products"
-#     args['accessories'] = accessories
-
-#     return render_to_response("products.html", args)
-
 
 def product(request, category_id, product_id):
 

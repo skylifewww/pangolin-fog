@@ -146,7 +146,8 @@ class Product(models.Model):
     product_video = EmbedVideoField(verbose_name='Video', blank=True, help_text='URL video', null=True)
     product_price = models.FloatField(verbose_name="Price", default=0, blank=True, null=True)
     video_published = models.BooleanField( blank=True, default="")
-    slug = models.CharField(max_length=250, blank=True, verbose_name="Url")
+    slug_small = models.CharField(max_length=250, blank=True, verbose_name="Slug_Small")
+    slug = models.CharField(max_length=250, blank=True, verbose_name="Slug")
     slogan = models.CharField(max_length=250, verbose_name="Product Slogan")
     short_text = RichTextUploadingField(blank=True, verbose_name="Short text")
     full_text = RichTextUploadingField(blank=True, verbose_name="Full text")
@@ -169,7 +170,10 @@ class Product(models.Model):
         return SlideProduct.objects.filter(category=self.product_category, published_portf=1) 
 
     def get_bg_slide(self):
-        return SlideProduct.objects.get(category=self.product_category, published_bg=1)       
+        return SlideProduct.objects.get(category=self.product_category, published_bg=1)
+
+    def get_related(self):
+        return Product.objects.filter(product_category__in=self.related_category.get_descendants(include_self=True), related_products=1)            
 
     def __str__(self):
         return self.product_title
@@ -194,7 +198,15 @@ class Product(models.Model):
         else:
             return '(none)'
     pic_slug.short_description = 'Product image slug'
-    pic_slug.allow_tags = True 
+    pic_slug.allow_tags = True
+
+    def pic_slug_small(self):
+        if self.slug_small:
+            return u'<img src="%s" width="70"/>' % self.slug_small
+        else:
+            return '(none)'
+    pic_slug_small.short_description = 'Product image small'
+    pic_slug_small.allow_tags = True  
  
 
 

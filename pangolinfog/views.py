@@ -15,12 +15,27 @@ from django.template.loader import get_template
 from django.core.mail import EmailMessage
 from django.template import Context
 from product.models import Category
-from product.models import Product
+from product.models import Product, Accessory
 from content.models import Slide
 from django.core.urlresolvers import reverse_lazy
 from django.views.generic import FormView
 
 from nocaptcha_recaptcha.fields import NoReCaptchaField
+
+
+def products(request):
+
+    args = {}
+ 
+    args["categories_all"] = Category.objects.filter(published=1).order_by('ordering') 
+    products = Product.objects.all().order_by('ordering')
+    accessories = Accessory.objects.all().order_by('ordering')  
+    
+    args['products'] = products
+    args['accessories'] = accessories
+    args['menu'] = "products"
+
+    return render_to_response("products_all.html", args)
 
 
 
@@ -70,7 +85,7 @@ def contact(request):
                 "Pangolin Fog",
                 content,
                 "Pangolin Fog" +'',
-                ['alexey@pangolin.com', 'vladimir@pangolin.com', 'bob@pangolin.com', 'justin@pangolin.com'],
+                ['vladimir@pangolin.com'],
                 headers = {'Reply-To': contact_email }
             )
             email.send()

@@ -231,9 +231,9 @@
 
 
     
- {% for related in related_products %}    
+ {% for related in current_product.get_related %}    
 
-    {% if related.product_category.parent.id != current_product.product_category.parent.id %}
+    {# {% if related.product_category.parent.id != current_product.product_category.parent.id %} #}
      
           <div class="col-sm-4 col-md-3">
 
@@ -253,14 +253,15 @@
 
                 <h3>{{ related.product_title }}</h3>
 
-                <h4>{{ related.slogan }}</h4>
+                {# <h4>{{ related.slogan }}</h4> #}
 
                  </div>
 
 
                  <div class="device_bottom_all">
 
-                <h3>${{ related.product_price }}</span></span>&nbsp;&nbsp;&nbsp;&nbsp;<a href="/products/product/{{related.product_category.id}}/{{related.id}}/">Learning more</a></h3>
+                <h3><a href="/products/product/{{related.product_category.id}}/{{related.id}}/">Learning more</a></h3>
+                {# <h3>${{ related.product_price }}</span></span>&nbsp;&nbsp;&nbsp;&nbsp;<a href="/products/product/{{related.product_category.id}}/{{related.id}}/">Learning more</a></h3> #}
 
                 </div>
 
@@ -268,7 +269,7 @@
 
           </div>
          
-          {% endif %}
+          {# {% endif %} #}
 
 
           

@@ -1,50 +1,4 @@
-/*!
-    Universal - Smart multi-purpose html5 template
-    To use this template you must have a license purchased at Themeforest (themeforest.com)
-    Copyright 1995-2016 ForBetterWeb.com
- */
-/*------------------------------------------------------------------
 
-Table of contents
-
-* Fonts
-* Plugins
-* Base structure
-  * Preloader
-  * Buttons
-  * NavBar
-  * Backgrounds and font color
-  * Intro
-    * Intro solid color
-    * Video background
-  * Forms
-    * Subscribe form
-  * Countdown
-  * News - Blog grid
-  * Team
-  * Contact
-  * Quote
-  * Facts
-  * Map
-  * Carousel
-    * Shop thumbnails carousel
-  * Animated mouse
-  * Text rotator
-  * Number scroller
-  * Testimonials
-  *  Portfolio
-  * Pricing
-  * Miscellaneous
-  * Pager
-  * Bars and charts
-  * Shop
-  * Media Queries
-  * Magic background
-  * Footer
-* Stop animation on mobile devices
-* Demo page
-
--------------------------------------------------------------------*/
 /* Fonts */
 @import "https://fonts.googleapis.com/css?family=Raleway:100,200,300,400,500,600,700,800,900|Roboto+Mono:100,400|Caveat";
 /* Plugins */
@@ -85,7 +39,7 @@ body {
   /*letter-spacing: -7px;*/
   font-weight:400;
   text-transform:uppercase;
-  animation:blur 3.75s ease-out infinite;
+  animation:blur 3.75s ease infinite;
   animation-delay:1s;
   text-shadow:0px 0px 2px #fff,
       0px 0px 2px #fff;
@@ -215,6 +169,38 @@ body {
       0px 0px 2px #fff,
       0px 0px 2px #fff,
       0px 0px 2px #fff,
+      0px 0px 2px #fff, 
+      0px 0px 2px #fff,
+      0px 0px 2px #fff,
+      0px 0px 2px #fff,
+      0px 0px 2px #fff,
+      0px 0px 2px #fff,
+      0px 0px 2px #fff,
+      0px 0px 2px #fff,
+      0px 0px 2px #fff, 
+      0px 0px 2px #fff,
+      0px 0px 2px #fff,
+      0px 0px 2px #fff,
+      0px 0px 2px #fff,
+      0px 0px 2px #fff,
+      0px 0px 2px #fff,
+      0px 0px 2px #fff,
+      0px 0px 2px #fff, 
+      0px 0px 2px #fff,
+      0px 0px 2px #fff,
+      0px 0px 2px #fff,
+      0px 0px 2px #fff,
+      0px 0px 2px #fff,
+      0px 0px 2px #fff,
+      0px 0px 2px #fff,
+      0px 0px 2px #fff, 
+      0px 0px 2px #fff,
+      0px 0px 2px #fff,
+      0px 0px 2px #fff,
+      0px 0px 2px #fff,
+      0px 0px 2px #fff,
+      0px 0px 2px #fff,
+      0px 0px 2px #fff,
       0px 0px 2px #fff,
       0px 0px 2px #fff,
       0px 0px 2px #fff;}
@@ -229,7 +215,7 @@ body {
   right: 0;
   bottom: 0;
   position: absolute;
-  background-color: #fff;
+  background-color: #111417;
   z-index: 99999;
   height: 100%;
   width: 100%;
@@ -292,6 +278,7 @@ body {
   to {
     -moz-transform: scale(1);
     opacity: 0.5; } }
+
 
 
 h1, h2, h3, h4, h5, h6 {
@@ -456,7 +443,7 @@ h4, h5, h6 {
   margin: 10px 0 10px;
   letter-spacing: 0.06em;
   text-transform: none;
-  padding-bottom: 40px;
+  /*padding-bottom: 40px;*/
   line-height: 1.2;
   font-size: 20px;
   /*color: #8F3985;*/
@@ -481,14 +468,16 @@ h4, h5, h6 {
   text-decoration: none; }
 
 .device_main_all  h3 {
-  margin: 40px 0 5px;
+  margin: 10px 0 5px;
   letter-spacing: 0.06em;
   text-transform: none;
   /*padding-bottom: 40px;*/
   line-height: 1.2;
   font-size: 20px;
-  /*color: #8F3985;*/
+  color: #000;
   text-align: left;
+  font-stretch: 1;
+  letter-spacing: 0.001em;
   font-weight: 600; }   
 
 .device_main_all  h4 {
@@ -509,6 +498,7 @@ h4, h5, h6 {
   text-transform: none;
   letter-spacing: 0.001em;
   line-height: 1.0;
+  color: #000;
   font-size: 50px;
   text-align: left;
   font-weight: 200; } 
@@ -1575,6 +1565,9 @@ a.btn-nav .btn {
 .introhalf {
   height: auto !important; }
 
+.intro75 {
+  height: 80% !important; }  
+
 .intro .intro-body {
   display: table-cell;
   vertical-align: middle;
@@ -1737,6 +1730,7 @@ a.btn-nav .btn {
 
 .form-control {
   border: 1px solid #ddd;
+  /*background-color: #2D333C;*/
   -webkit-box-shadow: none;
   box-shadow: none;
   -webkit-transition: border-color ease-in-out .3s,-webkit-box-shadow ease-in-out .3s;
@@ -1838,7 +1832,7 @@ input[type=checkbox], input[type=radio] {
 
 .row:not(:first-child) {
   /*padding-top: 40px; */
-  padding-bottom: 40px;
+  padding-bottom: 20px;
 }
 
 
@@ -1917,7 +1911,7 @@ input[type=checkbox], input[type=radio] {
 .input__label {
   display: inline-block;
   float: right;
-  padding: 0 1em;
+  padding: 0 2em;
   width: 40%;
   color: #696969;
   font-weight: bold;
@@ -1969,7 +1963,7 @@ input[type=checkbox], input[type=radio] {
   width: 100%;
   text-align: left;
   position: absolute;
-  top: 1em;
+  top: 0.5em;
   pointer-events: none;
   overflow: hidden;
   padding: 0 0.25em;
@@ -1995,10 +1989,14 @@ input[type=checkbox], input[type=radio] {
   height: 100%;
   width: 100%;
   color: #fff;
-  padding: 0.25em 0;
+  padding: 0 0.25em;
   text-transform: uppercase;
   letter-spacing: 1px;
   font-size: 0.85em;
+}
+
+.form-group {
+     margin-bottom: 0px; 
 }
 
 .graphic--kozakura {
@@ -2457,7 +2455,12 @@ blockquote {
   top: 0; }
 
 .bg-dark .panel, .bg-dark .panel-body, .bg-dark .list-group-item {
-  background-color: rgba(0, 0, 0, 0.1); }
+  background-color: #111417; }
+
+.panel-group .panel+.panel {
+     margin-top: 0px; 
+}
+
 .bg-dark .pricing .panel-heading {
   border: 0;
   background-color: #000;
@@ -2790,6 +2793,15 @@ li .shop-cart {
   .footer h4, .footer h5, .footer h6 {
     font-weight: 600;
     opacity: 0.8; }
+
+.footer_pang h6 {
+  margin: 0 0 4px;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  line-height: 1.7;
+  font-weight: 800; }    
+
+
   .footer a {
     text-decoration: none;
     opacity: 1; }
@@ -2881,4 +2893,4 @@ li .shop-cart {
   to {
     background-position: -40000px 0; } }
 
-/*# sourceMappingURL=universal.css.map */
+# sourceMappingURL=universal.css.map 

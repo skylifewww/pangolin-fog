@@ -13,25 +13,25 @@ class OverviewInline(admin.StackedInline):
 
 class TechSpecInline(admin.StackedInline):
     model = TechSpec
-    extra = 3
+    extra = 1
 
 
 class SlideProductInline(admin.StackedInline):
     model = SlideProduct
-    extra = 5
+    extra = 0
     formfield_overrides = {
         ThumbnailerImageField: {'widget': AdminImageWidget},
     }         
 
 class ProductAdmin(AdminVideoMixin, admin.ModelAdmin):
     fields = ["product_title", "product_creator", "product_video", 'video_published', "product_date", "slogan", "product_price", 'short_text',
-              'full_text', "product_image", 'slug',
+              'full_text', "product_image", 'slug', 'slug_small',
               "product_tag", "product_category", 'published', 'ordering', 'published_main', 'related_products', 'related_category']
 
    
     list_filter = ["product_title", "product_date", "product_tag", "product_category", "product_creator", 'published']
     search_fields = ["product_title", "product_date", "product_tag", "product_category", "product_creator"]
-    list_display = ["product_title", "product_price", "product_category", "product_creator", 'published', 'ordering', 'published_main', 'pic', 'pic_slug', 'related_products', 'related_category']
+    list_display = ["product_title", "product_price", "product_category", "product_creator", 'published', 'ordering', 'published_main', 'pic', 'pic_slug', 'pic_slug_small', 'related_products', 'related_category']
     list_editable = ['published', "product_price", 'ordering', 'published_main', 'related_products', 'related_category']
     inlines = [TechSpecInline]
 
