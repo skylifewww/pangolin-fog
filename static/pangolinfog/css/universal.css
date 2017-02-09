@@ -456,11 +456,11 @@ h4, h5, h6 {
   font-stretch: extra-condensed;
   text-transform: none;
   line-height: 1.2;
-  font-size: 20px;
-  opacity: 0.9;
+  font-size: 16px;
+  opacity: 1;
   color: #0070c9;
   text-align: left;
-  font-weight: 300; }
+  font-weight: 400; }
 
 .device_bottom_all  h3 a:hover {
   opacity: 1;
@@ -473,12 +473,12 @@ h4, h5, h6 {
   text-transform: none;
   /*padding-bottom: 40px;*/
   line-height: 1.2;
-  font-size: 20px;
+  font-size: 22px;
   color: #000;
   text-align: left;
-  font-stretch: 1;
+  font-stretch: semi-condensed;
   letter-spacing: 0.001em;
-  font-weight: 600; }   
+  font-weight: 500; }   
 
 .device_main_all  h4 {
   margin: 0 0 5px;
