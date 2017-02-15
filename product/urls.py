@@ -8,10 +8,12 @@ from django.contrib.staticfiles.urls import staticfiles_urlpatterns
 urlpatterns = [
 
     url(r'^product/(?P<category_id>\d+)/(?P<product_id>\d+)/$', product.views.product),
+    # url(r'^fluid/(?P<category_id>\d+)/(?P<product_id>\d+)/$', product.views.fluid),
     
     url(r'^products_all/$', product.views.products_all),
+    url(r'^$', product.views.products_all),
    
-    url(r'^(?P<category_id>\d+)/$', product.views.products),
+    # url(r'^(?P<category_id>\d+)/$', product.views.products),
    
     url(r'^supports/$', product.views.supports),
     

@@ -26,6 +26,7 @@ function init() {
 
         [{"stylers":[{"hue":"#ff1a00"},{"invert_lightness":true},{"saturation":-100},{"lightness":33},{"gamma":0.5}]},{"featureType":"water","elementType":"geometry","stylers":[{"color":"#2D333C"}]}]
     };
+    // #0B1D33
 
     // Get the HTML DOM element that will contain your map
     // We are using a div with id="map" seen below in the <body>

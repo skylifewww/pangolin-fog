@@ -32,10 +32,14 @@ class Category(MPTTModel):
     published = models.BooleanField(verbose_name="Published", blank=True, default="")
     published_in_menu = models.BooleanField(verbose_name="Published in main menu", default="", blank=True)
     published_in_second = models.BooleanField( blank=True, default="", verbose_name="Published in second menu")
+    published_in_products = models.BooleanField( blank=True, default="", verbose_name="Published in all products")
     ordering = models.IntegerField(verbose_name="Ordering", default=0, blank=True, null=True)
 
     def get_slides(self):
-        return Slide.objects.filter(category=self)    
+        return Slide.objects.filter(category=self)
+
+    def get_products(self):
+        return Product.objects.filter(product_category=self)        
 
     def get_parent(self):
         return self.parent    
@@ -153,12 +157,14 @@ class Product(models.Model):
     full_text = RichTextUploadingField(blank=True, verbose_name="Full text")
     published = models.BooleanField(verbose_name="Published", blank=True)
     published_main = models.BooleanField( blank=True, default="", verbose_name="Published on main page")
+    no_published_in_all = models.BooleanField( blank=True, default="", verbose_name="Do not Published on All products")
     related_products = models.BooleanField( blank=True, default="", verbose_name="Published on product page")
-    related_category = models.ForeignKey(Category, null=True, blank=True, verbose_name="Related Category")
+    related_title = models.CharField(max_length=250,  default="", blank=True, verbose_name="Related Product Title")
+    related_category = models.ManyToManyField(Category, related_name="related", related_query_name="related", blank=True, verbose_name="Related Category")
     ordering = models.IntegerField(verbose_name="Ordering", default=0, blank=True, null=True)
 
-    def get_accessories(self):
-        return Accessory.objects.filter(category=self.product_category, published=1)
+    def get_accessories(self):      
+        return Accessory.objects.filter(category__name__exact=self.product_category)    
 
     def get_overviews(self):
         return Overview.objects.filter(category=self.product_category, published=1)        
@@ -172,8 +178,9 @@ class Product(models.Model):
     def get_bg_slide(self):
         return SlideProduct.objects.get(category=self.product_category, published_bg=1)
 
-    def get_related(self):
-        return Product.objects.filter(product_category__in=self.related_category.get_descendants(include_self=True), related_products=1)            
+    # def get_related(self):
+        # return Product.objects.filter(product_category__in=self.related_category.get_descendants(include_self=True), related_products=1)
+                   # Article.objects.filter(article_tag__tag_name__exact=current_tag)
 
     def __str__(self):
         return self.product_title
@@ -211,7 +218,7 @@ class Product(models.Model):
 
 
 class MenuItemProduct(models.Model):
-    category = models.ForeignKey(Category, null=True, blank=True, verbose_name="Category")
+    category = models.ManyToManyField(Category, related_name="menuitem", related_query_name="menuit", blank=True, verbose_name="Category")
     name = models.CharField(max_length=200, verbose_name="Name")
     slug = models.CharField(max_length=250, blank=True, verbose_name="Url")
     published = models.BooleanField(verbose_name="Published")
@@ -361,6 +368,7 @@ class SlideProduct(models.Model):
     text2 = RichTextUploadingField(blank=True, verbose_name="Text2")
     published_bg = models.BooleanField(verbose_name="Published as BG", blank=True, default=0)
     published_portf = models.BooleanField(verbose_name="Published in Portfolio", blank=True, default=0)
+    published_in_all = models.BooleanField(verbose_name="Published in All Products", blank=True, default=0)
     ordering = models.IntegerField(verbose_name="Ordering", default=0, blank=True, null=True)
     
         

@@ -23,22 +23,6 @@ from django.views.generic import FormView
 from nocaptcha_recaptcha.fields import NoReCaptchaField
 
 
-def products(request):
-
-    args = {}
- 
-    args["categories_all"] = Category.objects.filter(published=1).order_by('ordering') 
-    products = Product.objects.all().order_by('ordering')
-    accessories = Accessory.objects.all().order_by('ordering')  
-    
-    args['products'] = products
-    args['accessories'] = accessories
-    args['menu'] = "products"
-
-    return render_to_response("products_all.html", args)
-
-
-
 def contact(request):
 
     form_class = ContactForm

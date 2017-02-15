@@ -206,11 +206,13 @@
 
 
 
-     <section id="{{ current_product.related_category.name}}" class="products_all">
+     <section id="{{ current_product.related_title }}" class="products_all">
     
        <div class="container">
        <hr></hr>
        <div class="row">
+       <div class="row">
+       </div>
 
             <div class="clearfix"></div>
 
@@ -223,17 +225,26 @@
 <div class="clearfix"></div>
 
 <div class="row">
+      
 
+    <div class="device_all"><h1  style="text-transform:uppercase">{{ current_product.related_title }}</h1></div>
 
-    <div class="device_all"><h1  style="text-transform:uppercase">{{ current_product.related_category.name}}</h1></div>
  
      </div>
 
-
     
- {% for related in current_product.get_related %}    
+ {% for related_cat in all_products %}  
 
-    {# {% if related.product_category.parent.id != current_product.product_category.parent.id %} #}
+
+
+         {% for cat in related_cat.all_related_category %}  
+
+  {% for product in cat.get_products %}  
+
+  {% if product.related_products = 1 %}
+
+
+   
      
           <div class="col-sm-4 col-md-3">
 
@@ -246,31 +257,59 @@
 
                 {# </div> #}
 
+                 
+                  
+                  
+{% if product.product_category.get_parent.name = "Fluids" %}
           
-                <a href="/products/product/{{related.product_category.id}}/{{related.id}}/"><img src="{{ related.slug }}" alt="" class="img-responsive center-block"></a>
+                <a href="/products/product/{{product.product_category.id}}/{{product.id}}/"><img src="{{ product.slug_small }}" alt="" class="img-responsive center-block"></a>
 
                   <div class="device_main_all">
 
-                <h3>{{ related.product_title }}</h3>
+                <h3>{{ product.product_title }}</h3>
 
-                {# <h4>{{ related.slogan }}</h4> #}
+                <h4>{{ product.slogan }}</h4>
 
                  </div>
 
 
                  <div class="device_bottom_all">
 
-                <h3><a href="/products/product/{{related.product_category.id}}/{{related.id}}/">Learning more ></a></h3>
+                <h3><a href="/products/product/{{product.product_category.id}}/{{product.id}}/">Learning more ></a></h3>
+                {# <h3>${{ related.product_price }}</span></span>&nbsp;&nbsp;&nbsp;&nbsp;<a href="/products/product/{{related.product_category.id}}/{{related.id}}/">Learning more</a></h3> #}
+
+                </div>
+ {% else %}
+
+   <a href="/products/product/{{product.product_category.get_parent.id}}/{{product.id}}/"><img src="{{ product.slug_small }}" alt="" class="img-responsive center-block"></a>
+
+                  <div class="device_main_all">
+
+                <h3>{{ product.product_title }}</h3>
+
+                <h4>{{ product.slogan }}</h4>
+
+                 </div>
+
+
+                 <div class="device_bottom_all">
+
+                <h3><a href="/products/product/{{product.product_category.get_parent.id}}/{{product.id}}/">Learning more ></a></h3>
                 {# <h3>${{ related.product_price }}</span></span>&nbsp;&nbsp;&nbsp;&nbsp;<a href="/products/product/{{related.product_category.id}}/{{related.id}}/">Learning more</a></h3> #}
 
                 </div>
 
-               
+
+
+ {% endif %}
+
 
           </div>
+        
+          {% endif %}
          
-          {# {% endif %} #}
-
+                {% endfor %} 
+                {% endfor %}
 
           
             {% endfor %}
@@ -279,14 +318,11 @@
 
             <div class="clearfix"></div>
 
-            {# {% endfor %} #}
+           
 
         </div>
       </div>
     </section>
-
-
-
 
    
 
@@ -294,6 +330,19 @@
     
        <div class="container">
        <hr></hr>
+
+        <div class="row">
+       </div>
+
+            <div class="clearfix"></div>
+
+<div class="row">
+
+ 
+     </div>
+
+
+<div class="clearfix"></div>
        <div class="row">
 
 
@@ -307,7 +356,7 @@
 
 
     
- {% for accessory in current_product.get_accessories %}    
+ {% for accessory in accessories %}    
 
    
      
@@ -330,7 +379,7 @@
 
                 <h3>{{ accessory.name }}</h3>
 
-                <h4>{{ accessory.slogan|safe }}</h4>
+                {# <h4>{{ accessory.slogan|safe }}</h4> #}
 
                  </div>
 
@@ -338,7 +387,8 @@
                  <div class="device_bottom_all">
 
                 {# <h3>${{ accessory.price }}</span></span>&nbsp;&nbsp;&nbsp;&nbsp;<a href="/products/product/{{accessory.category.id}}/{{accessory.id}}/">Learning more</a></h3> #}
-                <h3>${{ accessory.price }}</span></span>&nbsp;&nbsp;&nbsp;&nbsp;<a href="#">Learning more ></a></h3>
+               {# <h3>${{ accessory.price }}</span></span>&nbsp;&nbsp;&nbsp;&nbsp;<a href="#">Learning more ></a></h3> #}
+               <h3><a href="#">Learning more ></a></h3>
 
                 </div>
 

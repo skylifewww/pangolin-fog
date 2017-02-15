@@ -15,6 +15,10 @@ class TechSpecInline(admin.StackedInline):
     model = TechSpec
     extra = 1
 
+class MenuItemProductInline(admin.StackedInline):
+    model = MenuItemProduct
+    extra = 0
+
 
 class SlideProductInline(admin.StackedInline):
     model = SlideProduct
@@ -26,13 +30,13 @@ class SlideProductInline(admin.StackedInline):
 class ProductAdmin(AdminVideoMixin, admin.ModelAdmin):
     fields = ["product_title", "product_creator", "product_video", 'video_published', "product_date", "slogan", "product_price", 'short_text',
               'full_text', "product_image", 'slug', 'slug_small',
-              "product_tag", "product_category", 'published', 'ordering', 'published_main', 'related_products', 'related_category']
+              "product_tag", "product_category", 'published', 'ordering', 'published_main', "no_published_in_all", 'related_products', "related_title", 'related_category']
 
    
     list_filter = ["product_title", "product_date", "product_tag", "product_category", "product_creator", 'published']
     search_fields = ["product_title", "product_date", "product_tag", "product_category", "product_creator"]
-    list_display = ["product_title", "product_price", "product_category", "product_creator", 'published', 'ordering', 'published_main', 'pic', 'pic_slug', 'pic_slug_small', 'related_products', 'related_category']
-    list_editable = ['published', "product_price", 'ordering', 'published_main', 'related_products', 'related_category']
+    list_display = ["product_title", "product_price", "product_category", "product_creator", 'published', 'ordering', 'published_main',  "no_published_in_all", 'pic', 'pic_slug', 'pic_slug_small', "related_title", 'related_products']
+    list_editable = ['published', "product_price", 'ordering', 'published_main', "no_published_in_all", "related_title", 'related_products']
     inlines = [TechSpecInline]
 
     formfield_overrides = {
@@ -50,7 +54,7 @@ class AccessoryAdmin(admin.ModelAdmin):
 
 class MenuItemProductAdmin(admin.ModelAdmin):
     prepopulated_fields = {"slug": ("name",)}
-    list_display = ['category', 'name', 'slug', 'published', 'ordering']
+    list_display = ['name', 'slug', 'published', 'ordering']
     list_editable = ['slug', 'published', 'ordering']
 
 
@@ -81,8 +85,8 @@ class SupportAdmin(AdminVideoMixin, admin.ModelAdmin):
 
 class  CategoryAdmin(admin.ModelAdmin):
       # fields = ['name', 'parent']
-      list_display = ['name', 'parent', 'published', 'published_in_menu', 'published_in_second', 'ordering']
-      list_editable = ['published', 'ordering', 'published_in_second', 'published_in_menu']
+      list_display = ['name', 'parent', 'published', 'published_in_menu', 'published_in_second', "published_in_products", 'ordering']
+      list_editable = ['published', 'ordering', 'published_in_second', "published_in_products", 'published_in_menu']
       inlines = [OverviewInline, SlideProductInline]
 
 
@@ -93,8 +97,8 @@ class  CreatorAdmin(admin.ModelAdmin):
 
 
 class SlideProductAdmin(admin.ModelAdmin):
-    list_display = ['name', 'pic', 'pic_slug', 'category', 'published_bg', "published_portf", 'ordering']
-    list_editable = ['published_bg','ordering', "published_portf"]
+    list_display = ['name', 'pic', 'pic_slug', 'category', 'published_bg', "published_portf", "published_in_all", 'ordering']
+    list_editable = ['published_bg','ordering',  "published_in_all", "published_portf"]
     formfield_overrides = {
         models.ImageField: {'widget': AdminImageWidget},
     }

@@ -12,7 +12,7 @@ urlpatterns = [
     url(r'^grappelli/', include('grappelli.urls')),
     url(r'^adminpangolin/', include(admin.site.urls)),
     url(r'jq_subsc/$', jq_subsc),
-    url(r'^$',  products),
+    url(r'^', include('product.urls')),
     url(r'^home/$', main),
     url(r'products/', include('product.urls')),
     url(r'support/', include('product.urls')),

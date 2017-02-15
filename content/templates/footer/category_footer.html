@@ -7,12 +7,13 @@
 
 {% for category in categories %}
 
+{% if category.published_in_second == 1 %}
+
 <div class="panel"> 
 
 <div id="heading{{ category.id }}" role="tab" class="panel-heading">
                   <h6 class="panel-title"><a role="button" data-toggle="collapse" data-parent="#accordion" href="#{{ category.id }}" aria-expanded="false" aria-controls="{{ category.id }}" class="collapsed">{{ category.name }}</a></h6>
                 </div>
-
 
 
 
@@ -24,7 +25,17 @@
 
 {% if product.product_category == category %}
 
+
+    {% if product.product_category.get_parent.name == "Fluids" %}
+
                   <li><h8 class="no-pad"><a href="/products/product/{{product.product_category.id}}/{{product.id}}/">{{ product.product_title }}</a></h></li>
+
+                  {% else %}
+
+                  <li><h8 class="no-pad"><a href="/products/product/{{product.product_category.get_parent.id}}/{{product.id}}/">{{ product.product_title }}</a></h></li>
+
+
+                  {% endif %}
          
                 
                            {% endif %}
@@ -32,6 +43,8 @@
             </div>
             </div>
              </div> 
+
+             {% endif %}
            
             {% endfor %}
              
