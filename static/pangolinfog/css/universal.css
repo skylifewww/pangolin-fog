@@ -216,9 +216,9 @@ body {
   bottom: 0;
   position: absolute;
 
-  background-color: #090c0a;
+ /*background-color: #090c0a;*/
   /*background-color: #03080E;*/
-  /*background-color: #111417;*/
+  background-color: #111417;
 
   z-index: 99999;
   height: 100%;
@@ -776,8 +776,8 @@ section, .main_contact {
   padding-top: 0px;
   padding-bottom: 20px;
 
-  background-color: #090c0a;
-  /*background-color: #111417;*/
+  /*background-color: #090c0a;*/
+  background-color: #111417;
 }  
 
 
@@ -787,8 +787,8 @@ section, .portfolio {
   padding-top: 50px;
   padding-bottom: 20px;
 
-  background-color: #090c0a;
-  /*background-color: #111417;*/
+  /*background-color: #090c0a;*/
+  background-color: #111417;
    }
 
 section, .portfolio_product {
@@ -817,8 +817,8 @@ section, .portfolio_product {
   padding-top: 1px;
   padding-bottom: 0px;
 
-  background-color: #090c0a;
-  /*background-color: #111417;*/
+  /*background-color: #090c0a;*/
+  background-color: #111417;
    }  
 
 
@@ -922,10 +922,10 @@ section, .portfolio_product {
 .btn-dark {
   
   
-  border: 2px solid #090c0a;
+  border: 2px solid #111417;
   /*border: 2px solid #03080E;*/
 
-  background-color: #090c0a;
+  background-color: #111417;
   /*background-color: #03080E;*/
   color: #fff !important; }
 
@@ -1488,16 +1488,16 @@ a.btn-nav .btn {
 
 .bg-blue {
 
-  background-color: #090c0a;
+  /*background-color: #090c0a;*/
   /*background-color: #03080E;*/
-  /*background-color: #111417;*/
+  background-color: #111417;
    }
 
 .bg-blue2 {
 
-  background-color: #090c0a;
+  /*background-color: #090c0a;*/
   /*background-color: #03080E;*/
-  /*background-color: #111417;*/
+  background-color: #111417;
    }     
 
 .bg-transparent {
@@ -1505,16 +1505,16 @@ a.btn-nav .btn {
 
 .bg-dark {
 
-  background-color: #090c0a;
+  /*background-color: #090c0a;*/
   /*background-color: #03080E;*/
-  /*background-color: #111417;*/
+  background-color: #111417;
    } 
 
 .bg-dark2 {
 
-  background-color: #090c0a;
+  /*background-color: #090c0a;*/
   /*background-color: #03080E;*/
-  /*background-color: #111417;*/
+  background-color: #111417;
    }
 
 .small-header {
@@ -2357,7 +2357,7 @@ blockquote {
 
 .portfolio-wide_dark div {
 
-  background-color: #090c0a;
+  background-color: #111417;
   /*background-color: #03080E;*/
 
   margin-bottom: 10px;  }
@@ -2395,9 +2395,9 @@ blockquote {
 
 .bg-dark .panel, .bg-dark .panel-body, .bg-dark .list-group-item {
 
-  background-color: #090c0a;
+  /*background-color: #090c0a;*/
   /*background-color: #03080E;*/
-  /*background-color: #111417;*/
+  background-color: #111417;
    }
 
 .panel-group .panel+.panel {
